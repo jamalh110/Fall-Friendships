@@ -8,7 +8,7 @@ class HomePage extends React.Component {
   render() {
     return (
       <div className={classes.mainHome}>
-        <Navbar bg="light" expand="lg">
+        <Navbar bg="light" expand="md">
           <Navbar.Brand href="#home">THC x CBA | FF Logo</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
