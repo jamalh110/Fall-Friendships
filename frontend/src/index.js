@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
 
 import './index.css';
 import App from './App';
@@ -11,17 +13,22 @@ import * as serviceWorker from './serviceWorker';
 
 
 
-const routing = (
-    <Router>
-      <div>
-        <Route exact path="/" component={HomePage} />
-        <Route path="/about" component={Contact} />
-        <Route path="/contact" component={Contact} />
-      </div>
-    </Router>
+const root = ({ store }) => (
+    <Provider store={store}>
+        <Router>
+        <div>
+            <Route exact path="/" component={HomePage} />
+            <Route path="/about" component={Contact} />
+            <Route path="/contact" component={Contact} />
+        </div>
+        </Router>
+    </Provider>
   )
+const store = createStore(todoApp)
 
-ReactDOM.render(routing, document.getElementById('root'));
+
+
+ReactDOM.render(root, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
