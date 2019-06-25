@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
-import { Provider } from 'react-redux'
-import { createStore } from 'redux'
+//import { Provider } from 'react-redux'
+//import { createStore } from 'redux'
 
 import './index.css';
 import App from './App';
@@ -13,8 +13,8 @@ import * as serviceWorker from './serviceWorker';
 
 
 
-const root = ({ store }) => (
-    <Provider store={store}>
+const root = (
+   
         <Router>
         <div>
             <Route exact path="/" component={HomePage} />
@@ -22,10 +22,8 @@ const root = ({ store }) => (
             <Route path="/contact" component={Contact} />
         </div>
         </Router>
-    </Provider>
-  )
-const store = createStore(todoApp)
-
+  
+  );
 
 
 ReactDOM.render(root, document.getElementById('root'));
