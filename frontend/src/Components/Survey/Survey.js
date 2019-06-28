@@ -17,7 +17,7 @@ class Survey extends React.Component {
     }
   }
 
-  
+
   render() {
     if(this.state.state.loggedIn!=true){
         return (
@@ -30,8 +30,11 @@ class Survey extends React.Component {
     return (
       <div style = {{maxWidth:"100%"}}>
         <Navbar history = {this.props.history} state = {this.state.state} googleCallBack = {App.googleResponseSuccess.bind(this)}/>
-        <h1>Here is the state you are working with aahil:</h1>
-        <h1 style = {{wordWrap: "break-word"}}>{JSON.stringify(this.state.state)}</h1>
+        <h4>Here is the state you are working with aahil:</h4>
+        <h4 style = {{wordWrap: "break-word"}}>{JSON.stringify(this.state.state)}</h4>
+        <br></br>
+        <br></br>
+        <h4>also, "wab." LOLLLLLLLLLLL</h4>
       </div>
     );
   }
