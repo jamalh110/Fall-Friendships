@@ -1,0 +1,15 @@
+.MainNavbar {
+  background-color: rgb(244, 66, 107, 0.8);
+  display: flex;
+}
+
+.NavLinks {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.NavLinks span :hover {
+  color: yellow;
+}
