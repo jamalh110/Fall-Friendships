@@ -4,7 +4,7 @@ import { GoogleLogin } from 'react-google-login';
 import App from "../../App.js"
 import State from "../../State.js"
 
-class Contact extends React.Component {
+class Survey extends React.Component {
   componentWillMount(){
     if(this.props.location.state == null){
       this.setState({
@@ -17,14 +17,24 @@ class Contact extends React.Component {
     }
   }
 
+  
   render() {
+    if(this.state.state.loggedIn!=true){
+        return (
+            <div>
+              <Navbar history = {this.props.history} state = {this.state.state} googleCallBack = {App.googleResponseSuccess.bind(this)}/>
+              <h1>lmao y u trying to take survey without log in?</h1>
+            </div>
+          );
+    }
     return (
-      <div>
+      <div style = {{maxWidth:"100%"}}>
         <Navbar history = {this.props.history} state = {this.state.state} googleCallBack = {App.googleResponseSuccess.bind(this)}/>
-        <h1>contact</h1>
+        <h1>Here is the state you are working with aahil:</h1>
+        <h1 style = {{wordWrap: "break-word"}}>{JSON.stringify(this.state.state)}</h1>
       </div>
     );
   }
 }
 
-export default Contact;
+export default Survey;

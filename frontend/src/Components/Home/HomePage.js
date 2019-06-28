@@ -6,39 +6,44 @@ import App from "../../App.js"
 import State from "../../State.js"
 class HomePage extends React.Component {
   componentWillMount(){
-    if(this.props.state == null){
+    //console.log(this.props)
+    if(this.props.location.state == null){
       this.setState({
         state: (new State())
       })
     } else{
       this.setState({
-        state: this.props.state
+        state: this.props.location.state.state
       })
     }
   }
   responseGoogleSuccess(response){
-    var result = App.googleResponseSuccess(response)
-    this.setState({
-      state: Object.assign(this.state.state, {loggedIn: true})
-    })
+    //var result = App.googleResponseSuccess(response)
+    
   }
   render() {
+    var decision = (<GoogleLogin
+      clientId="29949178420-0opvqqshb6ltbdmhceqgcout83b7s5i2.apps.googleusercontent.com"
+      buttonText="Login"
+      onSuccess={App.googleResponseSuccess.bind(this)}
+      onFailure={this.responseGoogleSuccess}
+      cookiePolicy={'single_host_origin'}
+    />);
+    if(this.state.state.loggedIn){
+      decision = (<button onClick = {function(){
+        this.props.history.push("/survey", {state: this.state.state})
+      }.bind(this)}>Take Survey</button>)
+    }
+
     return (
       <div className={classes.mainHome}>
-        <Navbar loggedIn = {this.state.state.loggedIn} googleCallBack = {this.responseGoogleSuccess.bind(this)}/>
+        <Navbar history = {this.props.history} state = {this.state.state} googleCallBack = {App.googleResponseSuccess.bind(this)}/>
         <h1>FALL FRIENDSHIPS</h1>
         <h3>insert tagline</h3>
         <p>description</p>
-        <a href="../Contact/Contact">router test</a>
         <br></br>
         <br></br>
-        <GoogleLogin
-          clientId="29949178420-0opvqqshb6ltbdmhceqgcout83b7s5i2.apps.googleusercontent.com"
-          buttonText="Login"
-          onSuccess={this.responseGoogleSuccess.bind(this)}
-          onFailure={this.responseGoogleSuccess}
-          cookiePolicy={'single_host_origin'}
-        />
+        {decision}
       </div>
     );
   }
