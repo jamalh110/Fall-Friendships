@@ -16,6 +16,7 @@ import * as serviceWorker from "./serviceWorker";
 const root = (
   <Router>
     <div>
+      
       <Route exact path="/" component={HomePage} />
       <Route path="/about" component={About} />
       <Route path="/contact" component={Contact} />
