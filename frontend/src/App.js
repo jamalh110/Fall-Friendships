@@ -15,6 +15,7 @@ App.googleResponseSuccess = function (response) {
     method: 'post',
     headers: {'Content-Type':'application/json'},
     body: JSON.stringify({
+    "email": response.profileObj.email,
      "token": response.accessToken
     })
    }).then(function (resp){ 
