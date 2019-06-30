@@ -4,6 +4,7 @@ import { GoogleLogin } from "react-google-login";
 import App from "../../App.js";
 import State from "../../State.js";
 import * as Survey from "survey-react";
+import "survey-react/survey.css";
 import "survey-react/survey.react";
 import classes from "./Survey.module.css";
 
@@ -26,6 +27,7 @@ class SurveyClass extends React.Component {
 
   render() {
     let json = {
+      title:"placeholder",
       pages: [
         {
           name: "page1",
@@ -228,13 +230,9 @@ class SurveyClass extends React.Component {
         }
       ]
     };
-<<<<<<< HEAD
-    
-    Survey.StylesManager.applyTheme("bootstrap");
-=======
->>>>>>> cb2af7fe7c698ba53844e2723e5373338dced7d1
 
-    Survey.StylesManager.applyTheme("bootstrap");
+    Survey.StylesManager.applyTheme("default");
+    //Survey.Survey.cssType = "bootstrap";
 
     var myCss = {
       matrix: {
@@ -271,7 +269,7 @@ class SurveyClass extends React.Component {
           <Survey.Survey
             model={new Survey.Model(json)}
             onComplete={this.onCompleteFollowup}
-            css={myCss}
+            
           />
         </div>
       </div>
