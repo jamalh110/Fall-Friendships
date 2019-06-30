@@ -1,10 +1,19 @@
 .mainHome {
   text-align: center;
   font-family: "Roboto";
+  background-color: #f8f0d3;
+  color: #303c6c;
+  min-height: 100vh;
 }
 
 .mainHome h1 {
   margin: 40px 0px;
+  font-size: 4em;
+}
+
+.mainHome h3 {
+  margin: 40px 0px;
+  font-size: 2em;
 }
 
 .loginButton :hover {
@@ -16,4 +25,9 @@
   padding: 0;
   width: 175px;
   height: 42px;
+}
+
+.homeTexts {
+  margin: 0 auto;
+  width: 60%;
 }
