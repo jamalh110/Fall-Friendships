@@ -5,6 +5,7 @@ import { GoogleLogin } from "react-google-login";
 import classes from "./NavigationBar.module.css";
 import App from "../../App.js";
 import browserHistory from "react-router";
+import gloginimage from "../../Assets/web/2x/btn_google_signin_light_normal_web@2x.png";
 
 class NavigationBar extends React.Component {
   componentWillMount() {
@@ -57,12 +58,9 @@ class NavigationBar extends React.Component {
                   onFailure={this.responseGoogleSuccess}
                   cookiePolicy={"single_host_origin"}
                   render={renderProps => (
-                    <button
-                      onClick={renderProps.onClick}
-                      disabled={renderProps.disabled}
-                    >
-                      Login
-                    </button>
+                    <div className={classes.loginButton}>
+                      <img src={gloginimage} />
+                    </div>
                   )}
                 />
               </Nav>
