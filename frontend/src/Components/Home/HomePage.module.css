@@ -5,3 +5,14 @@
 .mainHome h1 {
   margin: 40px 0px;
 }
+
+.loginButton :hover {
+  cursor: pointer;
+  padding: 0;
+}
+
+.loginButton img {
+  padding: 0;
+  width: 175px;
+  height: 42px;
+}

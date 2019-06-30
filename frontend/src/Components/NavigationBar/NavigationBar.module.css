@@ -13,3 +13,14 @@
 .NavLinks span :hover {
   color: yellow;
 }
+
+.loginButton :hover {
+  cursor: pointer;
+  padding: 0;
+}
+
+.loginButton img {
+  padding: 0;
+  width: 175px;
+  height: 42px;
+}
