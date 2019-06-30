@@ -4,6 +4,8 @@ var bodyParser = require('body-parser')
 var mongo = require('mongodb');
 var mongoClient = mongo.MongoClient
 var url = "mongodb://localhost:27017/";
+var {google} = require('googleapis');
+var OAuth2 = google.auth.OAuth2;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -37,7 +39,24 @@ function createNewUser(request) {
         date_last_submitted: "",
     }
 }
-function authenticateGoogleToken(token, email) {
+function authenticateGoogleToken(token, email, success, failure) {
+    var oauth2Client = new OAuth2();
+    oauth2Client.setCredentials({ access_token: token });
+    var oauth2 = google.oauth2({
+        auth: oauth2Client,
+        version: 'v2'
+    });
+    oauth2.userinfo.get(
+        function (err, res) {
+            if (err) {
+                console.log(err);
+                failure()
+            } else {
+                console.log(res.data.email);
+                success()
+            }
+        });
+
     return true
 }
 this.runApp = function (db) {
@@ -48,9 +67,8 @@ this.runApp = function (db) {
     app.post("/api/authenticate_login_token", function (req, postResponse) {
 
         //console.log(req.body.token)
-        var googleTokenAuthenticated = authenticateGoogleToken(req.body.token, req.body.email)
-        if (googleTokenAuthenticated) {
-
+        authenticateGoogleToken(req.body.token, req.body.email, function(){
+            
             db.collection("users").findOne({ email: req.body.email }, function (err, result) {
                 if (err) throw err;
                 if (result == null) {
@@ -73,10 +91,10 @@ this.runApp = function (db) {
                 }
 
             })
-        }
-        else {
+        }, function (){
             postResponse.status(401).send()
-        }
+        })
+
         //db.collection("users").
         //res.send("yay")
     })
