@@ -7,9 +7,7 @@ import State from "../../State.js";
 import gloginimage from "../../Assets/web/2x/btn_google_signin_light_normal_web@2x.png";
 
 class HomePage extends React.Component {
-  
-  componentWillMount(){
-
+  componentWillMount() {
     //console.log(this.props)
     if (this.props.location.state == null) {
       this.setState({
@@ -58,7 +56,7 @@ class HomePage extends React.Component {
           state={this.state.state}
           googleCallBack={App.googleResponseSuccess.bind(this)}
         />
-        <h1>FALL FRIENDSHIPS</h1>
+        <h1>Fall Friendships</h1>
         <h3>insert tagline</h3>
         <p>description</p>
         <br />

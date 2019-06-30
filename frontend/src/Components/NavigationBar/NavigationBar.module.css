@@ -1,5 +1,5 @@
 .MainNavbar {
-  background-color: rgb(244, 66, 107, 0.8);
+  background-color: #f7e08d;
   display: flex;
 }
 
@@ -10,17 +10,39 @@
   justify-content: flex-end;
 }
 
-.NavLinks span :hover {
-  color: yellow;
-}
-
 .loginButton :hover {
   cursor: pointer;
-  padding: 0;
 }
 
 .loginButton img {
   padding: 0;
   width: 175px;
   height: 42px;
+}
+
+.fflogo {
+  height: 35px;
+  widows: 35px;
+}
+
+.brandBox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.brandBox p {
+  font-weight: bold;
+  font-size: 1.2em;
+  color: #303c6c;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+
+.nlink p {
+  font-weight: bold;
+  font-size: 1.2em;
+  color: #303c6c;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
 }
