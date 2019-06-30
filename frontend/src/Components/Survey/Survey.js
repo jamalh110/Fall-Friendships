@@ -241,7 +241,7 @@ class SurveyClass extends React.Component {
       matrix: {
         root: "sv_main sv_bootstrap_css"
       },
-      navigationButton: "button btn-lg btn-success d-flex flex-row-reverse",
+      navigationButton: "btn btn-outline-primary btn-lg btn-block",
       radiogroup: "button btn-lg"
     };
 
