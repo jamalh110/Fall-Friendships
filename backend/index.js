@@ -55,7 +55,11 @@ function authenticateGoogleToken(token, email, success, failure) {
                 failure()
             } else {
                 //console.log(res.data.email);
+                if(res.data.email==email && email.includes("@cornell.edu")){
                 success()
+                }else{
+                    failure()
+                }
             }
         });
 

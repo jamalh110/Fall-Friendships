@@ -8,6 +8,7 @@ import "survey-react/survey.css";
 import "survey-react/survey.react";
 import classes from "./Survey.module.css";
 
+
 class SurveyClass extends React.Component {
   componentWillMount() {
     if (this.props.location.state == null) {
@@ -27,7 +28,7 @@ class SurveyClass extends React.Component {
 
   render() {
     let json = {
-      title:"placeholder",
+      title:"Friendship Survey",
       pages: [
         {
           name: "page1",
@@ -95,151 +96,26 @@ class SurveyClass extends React.Component {
               type: "radiogroup",
               name: "question10",
               choices: ["item1", "item2", "item3", "item4"]
-            },
-            {
-              type: "radiogroup",
-              name: "question11",
-              choices: ["item1", "item2", "item3", "item4"]
-            },
-            {
-              type: "radiogroup",
-              name: "question12",
-              choices: ["item1", "item2", "item3", "item4"]
-            },
-            {
-              type: "radiogroup",
-              name: "question13",
-              choices: ["item1", "item2", "item3", "item4"]
-            },
-            {
-              type: "radiogroup",
-              name: "question14",
-              choices: ["item1", "item2", "item3", "item4"]
-            },
-            {
-              type: "radiogroup",
-              name: "question15",
-              choices: ["item1", "item2", "item3", "item4"]
-            },
-            {
-              type: "radiogroup",
-              name: "question16",
-              choices: ["item1", "item2", "item3", "item4"]
-            },
-            {
-              type: "radiogroup",
-              name: "question17",
-              choices: ["item1", "item2", "item3", "item4"]
-            },
-            {
-              type: "radiogroup",
-              name: "question18",
-              choices: ["item1", "item2", "item3", "item4"]
-            },
-            {
-              type: "radiogroup",
-              name: "question19",
-              choices: ["item1", "item2", "item3", "item4"]
-            },
-            {
-              type: "radiogroup",
-              name: "question20",
-              choices: ["item1", "item2", "item3", "item4"]
-            },
-            {
-              type: "radiogroup",
-              name: "question21",
-              choices: ["item1", "item2", "item3", "item4"]
-            },
-            {
-              type: "radiogroup",
-              name: "question22",
-              choices: ["item1", "item2", "item3", "item4"]
-            },
-            {
-              type: "radiogroup",
-              name: "question23",
-              choices: ["item1", "item2", "item3", "item4"]
-            },
-            {
-              type: "radiogroup",
-              name: "question24",
-              choices: ["item1", "item2", "item3", "item4"]
-            },
-            {
-              type: "radiogroup",
-              name: "question25",
-              choices: ["item1", "item2", "item3", "item4"]
-            },
-            {
-              type: "radiogroup",
-              name: "question26",
-              choices: ["item1", "item2", "item3", "item4"]
-            },
-            {
-              type: "radiogroup",
-              name: "question27",
-              choices: ["item1", "item2", "item3", "item4"]
-            },
-            {
-              type: "radiogroup",
-              name: "question28",
-              choices: ["item1", "item2", "item3", "item4"]
-            },
-            {
-              type: "radiogroup",
-              name: "question29",
-              choices: ["item1", "item2", "item3", "item4"]
-            },
-            {
-              type: "radiogroup",
-              name: "question30",
-              choices: ["item1", "item2", "item3", "item4"]
-            },
-            {
-              type: "radiogroup",
-              name: "question31",
-              choices: ["item1", "item2", "item3", "item4"]
-            },
-            {
-              type: "radiogroup",
-              name: "question32",
-              choices: ["item1", "item2", "item3", "item4"]
-            },
-            {
-              type: "radiogroup",
-              name: "question33",
-              choices: ["item1", "item2", "item3", "item4"]
-            },
-            {
-              type: "radiogroup",
-              name: "question34",
-              choices: ["item1", "item2", "item3", "item4"]
-            },
-            {
-              type: "radiogroup",
-              name: "question35",
-              choices: ["item1", "item2", "item3", "item4"]
-            },
-            {
-              type: "radiogroup",
-              name: "question36",
-              choices: ["item1", "item2", "item3", "item4"]
             }
           ]
         }
       ]
     };
 
-    Survey.StylesManager.applyTheme("default");
-    //Survey.Survey.cssType = "bootstrap";
+    let survey = new Survey.Model(json);
+    survey.data = {
+      question2: this.state.state.firstName,
+      question3: this.state.state.lastName
+    };
+
+    Survey.StylesManager.applyTheme("bootstrap");
 
     var myCss = {
-      matrix: {
-        root: "sv_main sv_bootstrap_css"
+      footer: classes.footer,
+      navigation: {
+        complete: "btn btn-success " + classes.padding
       },
-      navigationButton: "button btn-lg btn-success",
-      radiogroup: "button btn-lg btn-success"
+      radiogroup: "button btn-lg "
     };
 
     if (this.state.state.loggedIn != true) {
@@ -255,18 +131,18 @@ class SurveyClass extends React.Component {
       );
     }
     return (
-      <div>
+      <div className={classes.surveyPage}>
         <Navbar
           history={this.props.history}
           state={this.state.state}
           googleCallBack={App.googleResponseSuccess.bind(this)}
         />
-        <h1 className={classes.title}>Friendship Survey</h1>
+        {/*<h1 className={classes.title}>Friendship Survey</h1>*/}
         <div className={classes.surveyDiv}>
           <Survey.Survey
-            model={new Survey.Model(json)}
+            model={survey}
             onComplete={this.onCompleteFollowup}
-            
+            css = {myCss}
           />
         </div>
       </div>
