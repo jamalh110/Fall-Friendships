@@ -4,8 +4,8 @@ import { GoogleLogin } from "react-google-login";
 import App from "../../App.js";
 import State from "../../State.js";
 import * as Survey from "survey-react";
-import 'survey-react/survey.react'
-
+import "survey-react/survey.react";
+import classes from "./Survey.module.css";
 
 class SurveyClass extends React.Component {
   componentWillMount() {
@@ -20,9 +20,9 @@ class SurveyClass extends React.Component {
     }
   }
 
-  onCompleteFollowup = (result) => {
+  onCompleteFollowup = result => {
     alert("The results are:" + JSON.stringify(result.data));
-  }
+  };
 
   render() {
     let json = {
@@ -234,13 +234,18 @@ class SurveyClass extends React.Component {
 =======
 >>>>>>> cb2af7fe7c698ba53844e2723e5373338dced7d1
 
-    Survey
-    .StylesManager
-    .applyTheme("bootstrap");
+    Survey.StylesManager.applyTheme("bootstrap");
 
     var myCss = {
-      // Add CSS HERE 
-      };
+      matrix: {
+        root: "table table-striped"
+      },
+      navigationButton: "button btn-lg btn-primary"
+    };
+
+    // var myCss = {
+    //   // Add CSS HERE
+    // };
 
     if (this.state.state.loggedIn != true) {
       return (
@@ -255,18 +260,20 @@ class SurveyClass extends React.Component {
       );
     }
     return (
-      <div >
+      <div>
         <Navbar
           history={this.props.history}
           state={this.state.state}
           googleCallBack={App.googleResponseSuccess.bind(this)}
         />
-        <h1>Friendship Survey</h1>
-        <Survey.Survey
-          model={new Survey.Model(json)}
-          onComplete={this.onCompleteFollowup}
-          css= {myCss}
-        />
+        <h1 className={classes.title}>Friendship Survey</h1>
+        <div className={classes.surveyDiv}>
+          <Survey.Survey
+            model={new Survey.Model(json)}
+            onComplete={this.onCompleteFollowup}
+            css={myCss}
+          />
+        </div>
       </div>
     );
   }
