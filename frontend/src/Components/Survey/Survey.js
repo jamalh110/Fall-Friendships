@@ -233,7 +233,7 @@ class SurveyClass extends React.Component {
     survey.data = {
       question2: this.state.state.firstName,
       question3: this.state.state.lastName
-    }
+    };
 
     Survey.StylesManager.applyTheme("bootstrap");
 
@@ -257,7 +257,7 @@ class SurveyClass extends React.Component {
       );
     }
     return (
-      <div>
+      <div className={classes.surveyPage}>
         <Navbar
           history={this.props.history}
           state={this.state.state}
