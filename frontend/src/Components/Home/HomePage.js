@@ -5,6 +5,7 @@ import { GoogleLogin } from 'react-google-login';
 import App from "../../App.js"
 import State from "../../State.js"
 class HomePage extends React.Component {
+  
   componentWillMount(){
     //console.log(this.props)
     if(this.props.location.state == null){
@@ -17,6 +18,7 @@ class HomePage extends React.Component {
       })
     }
   }
+
   responseGoogleSuccess(response){
     //var result = App.googleResponseSuccess(response)
     
