@@ -5,6 +5,7 @@ import { GoogleLogin } from "react-google-login";
 import App from "../../App.js";
 import State from "../../State.js";
 import gloginimage from "../../Assets/web/2x/btn_google_signin_light_normal_web@2x.png";
+import fflogo from "../../Assets/yeet.png";
 
 class HomePage extends React.Component {
   componentWillMount() {
@@ -81,7 +82,8 @@ class HomePage extends React.Component {
         />
         <div className={classes.homeTexts}>
           <h1>Fall Friendships</h1>
-          <h3>Start the year off right. Meet someone new. Find your people!</h3>
+          <img src={fflogo} />
+          <h3>Start the year off right. Meet someone new.</h3>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
@@ -92,10 +94,8 @@ class HomePage extends React.Component {
             culpa qui officia deserunt mollit anim id est laborum.
           </p>
           <p>{this.state.count} participants and counting</p>
+          <div className={classes.homeDecBtn}> {decision}</div>
         </div>
-        <br />
-        <br />
-        {decision}
       </div>
     );
   }
