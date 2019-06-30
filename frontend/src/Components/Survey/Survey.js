@@ -4,6 +4,7 @@ import { GoogleLogin } from "react-google-login";
 import App from "../../App.js";
 import State from "../../State.js";
 import * as Survey from "survey-react";
+import 'survey-react/survey.react'
 
 
 class SurveyClass extends React.Component {
@@ -227,19 +228,13 @@ class SurveyClass extends React.Component {
         }
       ]
     };
-    Survey.StylesManager.applyTheme("bootstrap");
 
     Survey
     .StylesManager
     .applyTheme("bootstrap");
 
     var myCss = {
-      matrix: {
-          root: "table table-striped",
-      },
-      navigationButton: "button btn-lg",
-      
-
+      // Add CSS HERE 
       };
 
     if (this.state.state.loggedIn != true) {
