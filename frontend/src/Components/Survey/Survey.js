@@ -227,6 +227,7 @@ class SurveyClass extends React.Component {
         }
       ]
     };
+    Survey.StylesManager.applyTheme("bootstrap");
 
     Survey
     .StylesManager
@@ -254,7 +255,7 @@ class SurveyClass extends React.Component {
       );
     }
     return (
-      <div style={{ maxWidth: "100%" }}>
+      <div >
         <Navbar
           history={this.props.history}
           state={this.state.state}

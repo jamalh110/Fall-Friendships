@@ -18,7 +18,30 @@ class HomePage extends React.Component {
         state: this.props.location.state.state
       });
     }
+
+    this.setState({
+      count: "loading"
+    });
+
+    fetch(App.backendURL + "get_count", {
+      method: "get"
+    })
+      .then(function(resp) {
+        if (resp.ok) {
+          return resp.text();
+        } else {
+          throw "shit";
+        }
+      })
+      .then(
+        function(resp) {
+          this.setState({
+            count: resp
+          });
+        }.bind(this)
+      );
   }
+
   responseGoogleSuccess(response) {
     //var result = App.googleResponseSuccess(response)
   }
@@ -56,9 +79,20 @@ class HomePage extends React.Component {
           state={this.state.state}
           googleCallBack={App.googleResponseSuccess.bind(this)}
         />
-        <h1>Fall Friendships</h1>
-        <h3>insert tagline</h3>
-        <p>description</p>
+        <div className={classes.homeTexts}>
+          <h1>Fall Friendships</h1>
+          <h3>Start the year off right. Meet someone new. Find your people!</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+          <p>{this.state.count} participants and counting</p>
+        </div>
         <br />
         <br />
         {decision}

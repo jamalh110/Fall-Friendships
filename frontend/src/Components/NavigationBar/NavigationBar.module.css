@@ -51,6 +51,19 @@
   font-weight: bold;
   font-size: 1.2em;
   color: #000000;
+}
+
+.namediv {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.namediv p {
+  font-weight: bold;
+  font-size: 1.2em;
+  color: #303c6c;
   padding-bottom: 0px;
   margin-bottom: 0px;
 }
