@@ -18,7 +18,30 @@ class HomePage extends React.Component {
         state: this.props.location.state.state
       });
     }
+
+    this.setState({
+      count: "loading"
+    })
+    
+    fetch(App.backendURL + "get_count", {
+      method: "get"
+    })
+      .then(function (resp) {
+        if (resp.ok) {
+          return resp.text();
+        } else {
+          throw "shit";
+        }
+      })
+      .then(function (resp){
+        this.setState({
+          count: resp
+        });
+      }.bind(this))
+
+
   }
+
   responseGoogleSuccess(response) {
     //var result = App.googleResponseSuccess(response)
   }
@@ -40,7 +63,7 @@ class HomePage extends React.Component {
     if (this.state.state.loggedIn) {
       decision = (
         <button
-          onClick={function() {
+          onClick={function () {
             this.props.history.push("/survey", { state: this.state.state });
           }.bind(this)}
         >
@@ -58,7 +81,7 @@ class HomePage extends React.Component {
         />
         <h1>Fall Friendships</h1>
         <h3>insert tagline</h3>
-        <p>description</p>
+        <p>{this.state.count} participants and counting</p>
         <br />
         <br />
         {decision}

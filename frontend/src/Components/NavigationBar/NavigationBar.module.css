@@ -46,3 +46,11 @@
   padding-bottom: 0px;
   margin-bottom: 0px;
 }
+
+.nlink p:hover {
+  font-weight: bold;
+  font-size: 1.2em;
+  color: #000000;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}

@@ -11,7 +11,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 mongoClient.connect(url, function (err, db) {
-    if (err) throw err;
+    if (err) {
+        console.log(err)
+    };
     //db.yeet = "yee"
     console.log("connected to db");
     this.runApp(db.db("ff"))
@@ -52,7 +54,7 @@ function authenticateGoogleToken(token, email, success, failure) {
                 console.log(err);
                 failure()
             } else {
-                console.log(res.data.email);
+                //console.log(res.data.email);
                 success()
             }
         });
@@ -70,21 +72,27 @@ this.runApp = function (db) {
         authenticateGoogleToken(req.body.token, req.body.email, function(){
 
             db.collection("users").findOne({ email: req.body.email }, function (err, result) {
-                if (err) throw err;
+                if (err) {
+                    console.log(err)
+                }
                 if (result == null) {
                     console.log("User " + req.body.email + " does not already exist. creating record")
                     var record = createNewUser(req.body)
 
 
                     db.collection("users").insertOne(record, function (err, res) {
-                        if (err) throw err;
+                        if (err) {
+                            console.log(err);
+                        }
                         console.log("record created");
                         postResponse.send()
                     });
                 } else {
                     console.log("User " + req.body.email + " exists. updating record")
                     db.collection("users").updateOne({ email: req.body.email }, { $set: { token: req.body.token } }, function (err, res) {
-                        if (err) throw err;
+                        if (err) {
+                            console.log(err);
+                        }
                         console.log("record updated");
                         postResponse.send()
                     });
@@ -100,9 +108,15 @@ this.runApp = function (db) {
     app.post("/api/submit_survey", function (req, res) {
 
     })
-    //checks if have submitted before and if so, returns the results
-    app.post("/api/check_status", function (req, res) {
-
+    //gets the count of responses
+    app.get("/api/get_count", function (req, res) {
+        db.collection("users").estimatedDocumentCount(function (err, result) {
+            if(err){
+                console.log(err)
+            }
+            //console.log(result)
+            res.send(result.toString())
+        })
     })
 
     app.get("/*", function (req, res) {

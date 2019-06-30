@@ -3,9 +3,9 @@ import Navbar from "../NavigationBar/NavigationBar";
 import { GoogleLogin } from "react-google-login";
 import App from "../../App.js";
 import State from "../../State.js";
-import * as Surveyjs from "survey-react";
+import * as Survey from "survey-react";
 
-class Survey extends React.Component {
+class SurveyClass extends React.Component {
   componentWillMount() {
     if (this.props.location.state == null) {
       this.setState({
@@ -24,7 +24,7 @@ class Survey extends React.Component {
 
   render() {
     let json = {
-      /*pages: [
+      pages: [
         {
           name: "page1",
           elements: [
@@ -224,8 +224,9 @@ class Survey extends React.Component {
             }
           ]
         }
-      ]*/
+      ]
     };
+    Survey.StylesManager.applyTheme("bootstrap");
 
     if (this.state.state.loggedIn != true) {
       return (
@@ -241,13 +242,13 @@ class Survey extends React.Component {
     }
     return (
       <div >
-        {/*<Navbar
+        <Navbar
           history={this.props.history}
           state={this.state.state}
           googleCallBack={App.googleResponseSuccess.bind(this)}
-        />*/}
-        <Surveyjs.Surveyjs
-          model={new Surveyjs.Model(json)}
+        />
+        <Survey.Survey
+          model={new Survey.Model(json)}
           onComplete={this.onCompleteFollowup}
         />
       </div>
@@ -255,4 +256,4 @@ class Survey extends React.Component {
   }
 }
 
-export default Survey;
+export default SurveyClass;
