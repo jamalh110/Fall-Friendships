@@ -226,6 +226,7 @@ class SurveyClass extends React.Component {
         }
       ]
     };
+    Survey.StylesManager.applyTheme("bootstrap");
 
     if (this.state.state.loggedIn != true) {
       return (
@@ -240,7 +241,7 @@ class SurveyClass extends React.Component {
       );
     }
     return (
-      <div style={{ maxWidth: "100%" }}>
+      <div >
         <Navbar
           history={this.props.history}
           state={this.state.state}

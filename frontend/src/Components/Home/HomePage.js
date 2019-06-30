@@ -18,7 +18,30 @@ class HomePage extends React.Component {
         state: this.props.location.state.state
       });
     }
+
+    this.setState({
+      count: "loading"
+    });
+
+    fetch(App.backendURL + "get_count", {
+      method: "get"
+    })
+      .then(function(resp) {
+        if (resp.ok) {
+          return resp.text();
+        } else {
+          throw "shit";
+        }
+      })
+      .then(
+        function(resp) {
+          this.setState({
+            count: resp
+          });
+        }.bind(this)
+      );
   }
+
   responseGoogleSuccess(response) {
     //var result = App.googleResponseSuccess(response)
   }
@@ -68,6 +91,7 @@ class HomePage extends React.Component {
             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
             culpa qui officia deserunt mollit anim id est laborum.
           </p>
+          <p>{this.state.count} participants and counting</p>
         </div>
         <br />
         <br />
