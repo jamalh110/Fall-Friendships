@@ -21,13 +21,16 @@ class About extends React.Component {
 
   render() {
     return (
-      <div className={classes.mainAbout}>
-        <Navbar
+      <div>
+      <Navbar
           history={this.props.history}
           state={this.state.state}
           googleCallBack={App.googleResponseSuccess.bind(this)}
         />
+      <div className={classes.mainAbout}>
+        
         <h1>About</h1>
+      </div>
       </div>
     );
   }

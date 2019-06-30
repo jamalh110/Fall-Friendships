@@ -1,6 +1,7 @@
 .MainNavbar {
   background-color: #f7e08d;
   display: flex;
+  font-family: "Roboto";
 }
 
 .NavLinks {
