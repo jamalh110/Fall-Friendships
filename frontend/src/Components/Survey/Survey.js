@@ -5,6 +5,7 @@ import App from "../../App.js";
 import State from "../../State.js";
 import * as Survey from "survey-react";
 
+
 class SurveyClass extends React.Component {
   componentWillMount() {
     if (this.props.location.state == null) {
@@ -228,6 +229,19 @@ class SurveyClass extends React.Component {
     };
     Survey.StylesManager.applyTheme("bootstrap");
 
+    Survey
+    .StylesManager
+    .applyTheme("bootstrap");
+
+    var myCss = {
+      matrix: {
+          root: "table table-striped",
+      },
+      navigationButton: "button btn-lg",
+      
+
+      };
+
     if (this.state.state.loggedIn != true) {
       return (
         <div>
@@ -247,9 +261,11 @@ class SurveyClass extends React.Component {
           state={this.state.state}
           googleCallBack={App.googleResponseSuccess.bind(this)}
         />
+        <h1>Friendship Survey</h1>
         <Survey.Survey
           model={new Survey.Model(json)}
           onComplete={this.onCompleteFollowup}
+          css= {myCss}
         />
       </div>
     );
