@@ -227,6 +227,7 @@ class SurveyClass extends React.Component {
         }
       ]
     };
+    
     Survey.StylesManager.applyTheme("bootstrap");
 
     Survey

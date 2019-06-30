@@ -93,7 +93,7 @@ class HomePage extends React.Component {
             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
             culpa qui officia deserunt mollit anim id est laborum.
           </p>
-          <p>{this.state.count} participants and counting</p>
+          <h4>{this.state.count} participants and counting</h4>
           <div className={classes.homeDecBtn}> {decision}</div>
         </div>
       </div>
