@@ -9,4 +9,5 @@
 
 .surveyPage {
   background-color: #f8f0d3;
+  min-height: 100vh;
 }
