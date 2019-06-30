@@ -68,7 +68,7 @@ this.runApp = function (db) {
 
         //console.log(req.body.token)
         authenticateGoogleToken(req.body.token, req.body.email, function(){
-            
+
             db.collection("users").findOne({ email: req.body.email }, function (err, result) {
                 if (err) throw err;
                 if (result == null) {
@@ -95,8 +95,6 @@ this.runApp = function (db) {
             postResponse.status(401).send()
         })
 
-        //db.collection("users").
-        //res.send("yay")
     })
     //checks that token is authenticated, then stores 
     app.post("/api/submit_survey", function (req, res) {

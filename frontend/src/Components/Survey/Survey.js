@@ -24,7 +24,7 @@ class Survey extends React.Component {
 
   render() {
     let json = {
-      pages: [
+      /*pages: [
         {
           name: "page1",
           elements: [
@@ -224,7 +224,7 @@ class Survey extends React.Component {
             }
           ]
         }
-      ]
+      ]*/
     };
 
     if (this.state.state.loggedIn != true) {
@@ -240,12 +240,12 @@ class Survey extends React.Component {
       );
     }
     return (
-      <div style={{ maxWidth: "100%" }}>
-        <Navbar
+      <div >
+        {/*<Navbar
           history={this.props.history}
           state={this.state.state}
           googleCallBack={App.googleResponseSuccess.bind(this)}
-        />
+        />*/}
         <Surveyjs.Surveyjs
           model={new Surveyjs.Model(json)}
           onComplete={this.onCompleteFollowup}
