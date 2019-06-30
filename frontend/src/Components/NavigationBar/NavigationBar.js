@@ -90,9 +90,9 @@ class NavigationBar extends React.Component {
             <Navbar.Toggle aria-controls="navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav" className={classes.NavLinks}>
               <Nav>
-                <Nav.Link className={classes.nlink}>
+                <div className={classes.namediv}>
                   <p>Welcome, {this.props.state.firstName}!</p>
-                </Nav.Link>
+                </div>
                 <Nav.Link
                   className={classes.nlink}
                   onClick={function() {
