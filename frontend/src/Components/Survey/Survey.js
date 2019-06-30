@@ -236,14 +236,11 @@ class SurveyClass extends React.Component {
 
     var myCss = {
       matrix: {
-        root: "table table-striped"
+        root: "sv_main sv_bootstrap_css"
       },
-      navigationButton: "button btn-lg btn-primary"
+      navigationButton: "button btn-lg btn-success",
+      radiogroup: "button btn-lg btn-success"
     };
-
-    // var myCss = {
-    //   // Add CSS HERE
-    // };
 
     if (this.state.state.loggedIn != true) {
       return (
