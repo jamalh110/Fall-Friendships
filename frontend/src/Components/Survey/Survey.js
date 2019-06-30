@@ -236,7 +236,7 @@ class SurveyClass extends React.Component {
         root: "sv_main sv_bootstrap_css"
       },
       navigationButton: "button btn-lg btn-success",
-      radiogroup: "button btn-lg btn-success"
+      radiogroup: "text-primary"
     };
 
     if (this.state.state.loggedIn != true) {
