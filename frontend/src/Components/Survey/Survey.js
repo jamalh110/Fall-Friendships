@@ -229,6 +229,12 @@ class SurveyClass extends React.Component {
       ]
     };
 
+    let survey = new Survey.Model(json);
+    survey.data = {
+      question2: this.state.state.firstName,
+      question3: this.state.state.lastName
+    }
+
     Survey.StylesManager.applyTheme("bootstrap");
 
     var myCss = {
@@ -260,7 +266,7 @@ class SurveyClass extends React.Component {
         <h1 className={classes.title}>Friendship Survey</h1>
         <div className={classes.surveyDiv}>
           <Survey.Survey
-            model={new Survey.Model(json)}
+            model={survey}
             onComplete={this.onCompleteFollowup}
             css={myCss}
           />
