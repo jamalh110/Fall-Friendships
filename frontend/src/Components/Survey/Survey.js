@@ -23,12 +23,13 @@ class SurveyClass extends React.Component {
   }
 
   onCompleteFollowup = result => {
-    alert("The results are:" + JSON.stringify(result.data));
+    //alert("The results are:" + JSON.stringify(result.data));
   };
 
   render() {
     let json = {
       title:"Friendship Survey",
+      completedHtml: "Submitting...<br>Do not leave this page",
       pages: [
         {
           name: "page1",
