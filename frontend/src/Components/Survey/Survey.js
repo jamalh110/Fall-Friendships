@@ -11,6 +11,9 @@ import classes from "./Survey.module.css";
 
 class SurveyClass extends React.Component {
   componentWillMount() {
+    window.addEventListener('beforeunload', function(event) {
+      this.props.history.push("/survey", { state: this.state.state });
+    }.bind(this))
     if (this.props.location.state == null) {
       this.setState({
         state: new State()
@@ -22,14 +25,47 @@ class SurveyClass extends React.Component {
     }
   }
 
-  onCompleteFollowup = result => {
+  onCompleteFollowup = function (result) {
+    //this.survey.completedHtml = "<div style = \"text-align:center\">Submitted!<br>You can reload the page or log in again later to change you answers<br><br></div>"
+    console.log(JSON.stringify(result.data))
     //alert("The results are:" + JSON.stringify(result.data));
+    fetch(App.backendURL + "submit_survey", {
+      method: "post",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email: this.state.state.email,
+        token: this.state.state.accessToken,
+        data: result.data
+      })
+    })
+      .then(function (resp) {
+        if (resp.ok) {
+          return resp.text();
+        } else {
+          throw "shit";
+        }
+      })
+      .then(
+        function (resp) {
+          this.survey.completedHtml = "<div style = \"text-align:center\">Submitted!<br>You can reload the page or log in again later to change you answers<br><br></div>"
+          this.dontReload = true
+          //this.setState({})
+          this.setState({
+            state: Object.assign(this.state.state, {
+              hasTaken: true,
+              response: result.data
+            })
+          });
+        }.bind(this)).catch(function (err) {
+          console.log(err)
+          this.survey.completedHtml = "<div style = \"text-align:center\">Oops! Something went wrong :/<br><br></div>"
+        }.bind(this))
   };
 
   render() {
     let json = {
-      title:"Friendship Survey",
-      completedHtml: "Submitting...<br>Do not leave this page",
+      title: "Friendship Survey",
+      completedHtml: "<div style = \"text-align:center\">Submitting...<br>Do not leave this page<br><br><div>",
       pages: [
         {
           name: "page1",
@@ -103,12 +139,20 @@ class SurveyClass extends React.Component {
       ]
     };
 
-    let survey = new Survey.Model(json);
-    survey.data = {
-      question2: this.state.state.firstName,
-      question3: this.state.state.lastName
-    };
-
+    if (this.dontReload != true) {
+      this.survey = new Survey.Model(json);
+      var survey = this.survey
+      if (this.state.state.hasTaken != true) {
+        survey.data = {
+          question2: this.state.state.firstName,
+          question3: this.state.state.lastName
+        };
+      }
+      else {
+        survey.data = this.state.state.response
+      }
+    }
+    var survey = this.survey
     Survey.StylesManager.applyTheme("bootstrap");
 
     var myCss = {
@@ -142,8 +186,8 @@ class SurveyClass extends React.Component {
         <div className={classes.surveyDiv}>
           <Survey.Survey
             model={survey}
-            onComplete={this.onCompleteFollowup}
-            css = {myCss}
+            onComplete={this.onCompleteFollowup.bind(this)}
+            css={myCss}
           />
         </div>
       </div>

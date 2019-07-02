@@ -4,7 +4,7 @@ var bodyParser = require('body-parser')
 var mongo = require('mongodb');
 var mongoClient = mongo.MongoClient
 var url = "mongodb://localhost:27017/";
-var {google} = require('googleapis');
+var { google } = require('googleapis');
 var OAuth2 = google.auth.OAuth2;
 
 app.use(bodyParser.json());
@@ -28,6 +28,7 @@ mongoClient.connect(url, function (err, db) {
 //date created 
 //date token submitted
 //date last submitted
+//has submitted
 
 this.test = 1
 
@@ -39,6 +40,7 @@ function createNewUser(request) {
         date_created: "",
         date_token_submitted: "",
         date_last_submitted: "",
+        has_submitted: "false"
     }
 }
 function authenticateGoogleToken(token, email, success, failure) {
@@ -55,9 +57,9 @@ function authenticateGoogleToken(token, email, success, failure) {
                 failure()
             } else {
                 //console.log(res.data.email);
-                if(res.data.email==email && email.includes("@cornell.edu")){
-                success()
-                }else{
+                if (res.data.email == email && email.includes("@cornell.edu")) {
+                    success()
+                } else {
                     failure()
                 }
             }
@@ -73,7 +75,7 @@ this.runApp = function (db) {
     app.post("/api/authenticate_login_token", function (req, postResponse) {
 
         //console.log(req.body.token)
-        authenticateGoogleToken(req.body.token, req.body.email, function(){
+        authenticateGoogleToken(req.body.token, req.body.email, function () {
 
             db.collection("users").findOne({ email: req.body.email }, function (err, result) {
                 if (err) {
@@ -89,33 +91,75 @@ this.runApp = function (db) {
                             console.log(err);
                         }
                         console.log("record created");
-                        postResponse.send()
+                        postResponse.send(JSON.stringify({
+                            has_submitted: false
+                        }))
                     });
                 } else {
                     console.log("User " + req.body.email + " exists. updating record")
-                    db.collection("users").updateOne({ email: req.body.email }, { $set: { token: req.body.token } }, function (err, res) {
+                    db.collection("users").findOneAndUpdate({ email: req.body.email }, { $set: { token: req.body.token } }, { returnOriginal: false }, function (err, res) {
                         if (err) {
                             console.log(err);
                         }
                         console.log("record updated");
-                        postResponse.send()
+                        //console.log(res.lastErrorObject.n)
+                        //console.log(res.value)
+                        var sendObj = {}
+                        if (res.value.has_submitted == true) {
+                            sendObj = {
+                                has_submitted: true,
+                                data: res.value.data
+                            }
+                        }
+                        else {
+                            sendObj = { has_submitted: false }
+                        }
+                        postResponse.send(sendObj)
                     });
                 }
 
             })
-        }, function (){
+        }, function () {
             postResponse.status(401).send()
         })
 
     })
     //checks that token is authenticated, then stores 
     app.post("/api/submit_survey", function (req, res) {
+        db.collection("users").findOne({ email: req.body.email }, function (err, result) {
+            if(err){
+                res.status(500).send()
+            }
+            else if(result){
+                if(result.token.toString() === req.body.token.toString()){
 
+                    db.collection("users").updateOne({ email: req.body.email }, { $set: { has_submitted: true, data:req.body.data } }, function(err, result){
+                        //console.log(result)
+                        if(err){
+                            res.status(500).send()
+                        }
+                        else if(result){
+                            console.log("survey submitted")
+                            res.send()
+                        }
+                        else{
+                            res.status(500).send()
+                        }
+                    })
+
+                } else{
+                    res.status(401).send()
+                }
+            }
+            else{
+                res.status(401).send()
+            }
+        })
     })
     //gets the count of responses
     app.get("/api/get_count", function (req, res) {
         db.collection("users").estimatedDocumentCount(function (err, result) {
-            if(err){
+            if (err) {
                 console.log(err)
             }
             //console.log(result)

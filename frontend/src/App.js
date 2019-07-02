@@ -19,7 +19,7 @@ App.googleResponseSuccess = function(response) {
   })
     .then(function(resp) {
       if (resp.ok) {
-        return resp.text();
+        return resp.json();
       } else {
         throw "shit";
       }
@@ -33,7 +33,9 @@ App.googleResponseSuccess = function(response) {
             email: response.profileObj.email,
             accessToken: response.accessToken,
             firstName: response.profileObj.givenName,
-            lastName: response.profileObj.familyName
+            lastName: response.profileObj.familyName,
+            hasTaken: resp.has_submitted,
+            response: resp.data
           })
         });
       }.bind(this)

@@ -8,15 +8,33 @@ import gloginimage from "../../Assets/web/2x/btn_google_signin_light_normal_web@
 import fflogo from "../../Assets/yeet.png";
 
 class HomePage extends React.Component {
+  componentWillUnmount(){
+    console.log("unmounting")
+    
+    //this.props.history.push("/", { state: this.state.state });
+  }
+  componentWillUpdate(){
+    
+    /*window.onbeforeunload = function (){
+    this.props.history.push("/", { state: this.state.state });
+     //return false
+    }.bind(this)*/
+  }
   componentWillMount() {
-    //console.log(this.props)
+    //solves problem of not updating the state that isnt updated by the nav bar props and adds it to the props.location.state
+    window.addEventListener('beforeunload', function(event) {
+      this.props.history.push("/", { state: this.state.state });
+    }.bind(this))
+    
     if (this.props.location.state == null) {
       this.setState({
         state: new State()
       });
     } else {
       this.setState({
+
         state: this.props.location.state.state
+
       });
     }
 

@@ -6,6 +6,9 @@ import State from "../../State.js"
 
 class Contact extends React.Component {
   componentWillMount(){
+    window.addEventListener('beforeunload', function(event) {
+      this.props.history.push("/contact", { state: this.state.state });
+    }.bind(this))
     if(this.props.location.state == null){
       this.setState({
         state: (new State())

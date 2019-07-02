@@ -7,6 +7,9 @@ import classes from "./About.module.css";
 
 class About extends React.Component {
   componentWillMount() {
+    window.addEventListener('beforeunload', function(event) {
+      this.props.history.push("/about", { state: this.state.state });
+    }.bind(this))
     //console.log(this.props)
     if (this.props.location.state == null) {
       this.setState({
@@ -18,7 +21,7 @@ class About extends React.Component {
       });
     }
   }
-
+  
   render() {
     return (
       <div>

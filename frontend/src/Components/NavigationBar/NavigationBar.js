@@ -22,7 +22,7 @@ class NavigationBar extends React.Component {
     if (this.props.state.loggedIn != true) {
       return (
           <Navbar sticky = "top" className={classes.MainNavbar} expand="md">
-            <Navbar.Brand href="#">
+            <Navbar.Brand href="">
               <div className={classes.brandBox}>
                 <img className={classes.fflogo} src={fflogo} />
                 <p>thc x cba</p>
@@ -78,7 +78,7 @@ class NavigationBar extends React.Component {
     } else {
       return (
           <Navbar sticky = "top" className={classes.MainNavbar} expand="md">
-            <Navbar.Brand href="#">
+            <Navbar.Brand href="">
               <div className={classes.brandBox}>
                 <img className={classes.fflogo} src={fflogo} />
                 <p>thc x cba</p>
