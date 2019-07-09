@@ -72,7 +72,9 @@ class HomePage extends React.Component {
           googleCallBack={App.googleResponseSuccess.bind(this)}
         />
         <div className={classes.homeTexts}>
+          
           <h1>Fall Friendships</h1>
+          <br></br>
           <img src={fflogo} />
           <h3>Start the year off right. Meet someone new.</h3>
           <p>
