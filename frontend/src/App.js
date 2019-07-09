@@ -27,8 +27,8 @@ App.googleResponseSuccess = function(response) {
     .then(
       function(resp) {
         //console.log(response)
-        this.setState({
-          state: Object.assign(this.state.state, {
+        this.props.setState({
+          state: Object.assign(this.props.state.state, {
             loggedIn: true,
             email: response.profileObj.email,
             accessToken: response.accessToken,

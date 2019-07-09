@@ -34,7 +34,7 @@ class NavigationBar extends React.Component {
                 <Nav.Link
                   className={classes.nlink}
                   onClick={function() {
-                    this.props.history.push("/", { state: this.props.state });
+                    this.props.history.push("/");
                   }.bind(this)}
                 >
                   <p>Home</p>
@@ -42,9 +42,7 @@ class NavigationBar extends React.Component {
                 <Nav.Link
                   className={classes.nlink}
                   onClick={function() {
-                    this.props.history.push("/about", {
-                      state: this.props.state
-                    });
+                    this.props.history.push("/about");
                   }.bind(this)}
                 >
                   <p>About</p>
@@ -52,9 +50,7 @@ class NavigationBar extends React.Component {
                 <Nav.Link
                   className={classes.nlink}
                   onClick={function() {
-                    this.props.history.push("/contact", {
-                      state: this.props.state
-                    });
+                    this.props.history.push("/contact");
                   }.bind(this)}
                 >
                   <p>Contact</p>
@@ -93,7 +89,7 @@ class NavigationBar extends React.Component {
                 <Nav.Link
                   className={classes.nlink}
                   onClick={function() {
-                    this.props.history.push("/", { state: this.props.state });
+                    this.props.history.push("/");
                   }.bind(this)}
                 >
                   <p>Home</p>
@@ -101,9 +97,7 @@ class NavigationBar extends React.Component {
                 <Nav.Link
                   className={classes.nlink}
                   onClick={function() {
-                    this.props.history.push("/about", {
-                      state: this.props.state
-                    });
+                    this.props.history.push("/about");
                   }.bind(this)}
                 >
                   <p>About</p>
@@ -111,9 +105,7 @@ class NavigationBar extends React.Component {
                 <Nav.Link
                   className={classes.nlink}
                   onClick={function() {
-                    this.props.history.push("/contact", {
-                      state: this.props.state
-                    });
+                    this.props.history.push("/contact");
                   }.bind(this)}
                 >
                   <p>Contact</p>
@@ -121,9 +113,7 @@ class NavigationBar extends React.Component {
                 <Nav.Link
                   className={classes.nlink}
                   onClick={function() {
-                    this.props.history.push("/survey", {
-                      state: this.props.state
-                    });
+                    this.props.history.push("/survey");
                   }.bind(this)}
                 >
                   <p>Take Survey</p>

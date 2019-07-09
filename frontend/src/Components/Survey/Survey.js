@@ -10,19 +10,14 @@ import classes from "./Survey.module.css";
 
 
 class SurveyClass extends React.Component {
-  componentWillMount() {
-    window.addEventListener('beforeunload', function(event) {
-      this.props.history.push("/survey", { state: this.state.state });
-    }.bind(this))
-    if (this.props.location.state == null) {
-      this.setState({
-        state: new State()
-      });
-    } else {
-      this.setState({
-        state: this.props.location.state.state
-      });
-    }
+  componentWillUnmount(){
+    this.props.setState({
+      state: Object.assign(this.props.state.state, {
+
+        response: this.survey.data
+
+      })
+    })
   }
 
   onCompleteFollowup = function (result) {
@@ -33,8 +28,8 @@ class SurveyClass extends React.Component {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        email: this.state.state.email,
-        token: this.state.state.accessToken,
+        email: this.props.state.state.email,
+        token: this.props.state.state.accessToken,
         data: result.data
       })
     })
@@ -50,8 +45,8 @@ class SurveyClass extends React.Component {
           this.survey.completedHtml = "<div style = \"text-align:center\">Submitted!<br>You can reload the page or log in again later to change you answers<br><br></div>"
           this.dontReload = true
           //this.setState({})
-          this.setState({
-            state: Object.assign(this.state.state, {
+          this.props.setState({
+            state: Object.assign(this.props.state.state, {
               hasTaken: true,
               response: result.data
             })
@@ -142,14 +137,14 @@ class SurveyClass extends React.Component {
     if (this.dontReload != true) {
       this.survey = new Survey.Model(json);
       var survey = this.survey
-      if (this.state.state.hasTaken != true) {
+      if (this.props.state.state.hasTaken != true) {
         survey.data = {
-          question2: this.state.state.firstName,
-          question3: this.state.state.lastName
+          question2: this.props.state.state.firstName,
+          question3: this.props.state.state.lastName
         };
       }
       else {
-        survey.data = this.state.state.response
+        survey.data = this.props.state.state.response
       }
     }
     var survey = this.survey
@@ -163,12 +158,12 @@ class SurveyClass extends React.Component {
       radiogroup: "button btn-lg "
     };
 
-    if (this.state.state.loggedIn != true) {
+    if (this.props.state.state.loggedIn != true) {
       return (
         <div>
           <Navbar
             history={this.props.history}
-            state={this.state.state}
+            state={this.props.state.state}
             googleCallBack={App.googleResponseSuccess.bind(this)}
           />
           <h1>lmao y u trying to take survey without log in?</h1>
@@ -179,7 +174,7 @@ class SurveyClass extends React.Component {
       <div className={classes.surveyPage}>
         <Navbar
           history={this.props.history}
-          state={this.state.state}
+          state={this.props.state.state}
           googleCallBack={App.googleResponseSuccess.bind(this)}
         />
         {/*<h1 className={classes.title}>Friendship Survey</h1>*/}

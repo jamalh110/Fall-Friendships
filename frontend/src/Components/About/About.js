@@ -7,7 +7,7 @@ import classes from "./About.module.css";
 
 class About extends React.Component {
   componentWillMount() {
-    window.addEventListener('beforeunload', function(event) {
+   /* window.addEventListener('beforeunload', function(event) {
       this.props.history.push("/about", { state: this.state.state });
     }.bind(this))
     //console.log(this.props)
@@ -19,7 +19,7 @@ class About extends React.Component {
       this.setState({
         state: this.props.location.state.state
       });
-    }
+    }*/
   }
   
   render() {
@@ -27,7 +27,7 @@ class About extends React.Component {
       <div>
       <Navbar
           history={this.props.history}
-          state={this.state.state}
+          state={this.props.state.state}
           googleCallBack={App.googleResponseSuccess.bind(this)}
         />
       <div className={classes.mainAbout}>

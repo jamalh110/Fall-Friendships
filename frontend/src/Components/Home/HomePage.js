@@ -8,36 +8,10 @@ import gloginimage from "../../Assets/web/2x/btn_google_signin_light_normal_web@
 import fflogo from "../../Assets/yeet.png";
 
 class HomePage extends React.Component {
-  componentWillUnmount(){
-    console.log("unmounting")
-    
-    //this.props.history.push("/", { state: this.state.state });
-  }
-  componentWillUpdate(){
-    
-    /*window.onbeforeunload = function (){
-    this.props.history.push("/", { state: this.state.state });
-     //return false
-    }.bind(this)*/
-  }
+
+  
   componentWillMount() {
-    //solves problem of not updating the state that isnt updated by the nav bar props and adds it to the props.location.state
-    window.addEventListener('beforeunload', function(event) {
-      this.props.history.push("/", { state: this.state.state });
-    }.bind(this))
     
-    if (this.props.location.state == null) {
-      this.setState({
-        state: new State()
-      });
-    } else {
-      this.setState({
-
-        state: this.props.location.state.state
-
-      });
-    }
-
     this.setState({
       count: "loading"
     });
@@ -79,11 +53,11 @@ class HomePage extends React.Component {
         )}
       />
     );
-    if (this.state.state.loggedIn) {
+    if (this.props.state.state.loggedIn) {
       decision = (
         <button
           onClick={function() {
-            this.props.history.push("/survey", { state: this.state.state });
+            this.props.history.push("/survey");
           }.bind(this)}
         >
           Take Survey
@@ -95,7 +69,7 @@ class HomePage extends React.Component {
       <div className={classes.mainHome}>
         <Navbar
           history={this.props.history}
-          state={this.state.state}
+          state={this.props.state.state}
           googleCallBack={App.googleResponseSuccess.bind(this)}
         />
         <div className={classes.homeTexts}>
