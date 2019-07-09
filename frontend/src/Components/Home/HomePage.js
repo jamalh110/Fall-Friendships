@@ -9,7 +9,6 @@ import fflogo from "../../Assets/yeet.png";
 
 class HomePage extends React.Component {
 
-  
   componentWillMount() {
     
     this.setState({

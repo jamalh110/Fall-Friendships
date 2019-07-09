@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/static/css/main.5a391e54.chunk.css",
+    "main.js": "/static/js/main.d81e76c9.chunk.js",
+    "main.js.map": "/static/js/main.d81e76c9.chunk.js.map",
+    "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
+    "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
+    "static/css/2.9ed72c85.chunk.css": "/static/css/2.9ed72c85.chunk.css",
+    "static/js/2.2b318690.chunk.js": "/static/js/2.2b318690.chunk.js",
+    "static/js/2.2b318690.chunk.js.map": "/static/js/2.2b318690.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.1648d8c6a58a3f3d055dfbdcbaafdcbf.js": "/precache-manifest.1648d8c6a58a3f3d055dfbdcbaafdcbf.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.9ed72c85.chunk.css.map": "/static/css/2.9ed72c85.chunk.css.map",
+    "static/css/main.5a391e54.chunk.css.map": "/static/css/main.5a391e54.chunk.css.map",
+    "static/media/yeet.png": "/static/media/yeet.de20b30b.png"
+  }
+}

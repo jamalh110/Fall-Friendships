@@ -1,6 +1,8 @@
 var express = require("express")
 var app = express()
 var bodyParser = require('body-parser')
+const path = require('path');
+
 var mongo = require('mongodb');
 var mongoClient = mongo.MongoClient
 var url = "mongodb://localhost:27017/";
@@ -72,9 +74,10 @@ this.runApp = function (db) {
     // console.log(this.test)
     //authenticates token and stores user email, token, and date in the database
     //params are email, token
+    
     app.post("/api/authenticate_login_token", function (req, postResponse) {
-
-        //console.log(req.body.token)
+        console.log("yeet")
+        console.log(req.body.token)
         authenticateGoogleToken(req.body.token, req.body.email, function () {
 
             db.collection("users").findOne({ email: req.body.email }, function (err, result) {
@@ -127,31 +130,31 @@ this.runApp = function (db) {
     //checks that token is authenticated, then stores 
     app.post("/api/submit_survey", function (req, res) {
         db.collection("users").findOne({ email: req.body.email }, function (err, result) {
-            if(err){
+            if (err) {
                 res.status(500).send()
             }
-            else if(result){
-                if(result.token.toString() === req.body.token.toString()){
+            else if (result) {
+                if (result.token.toString() === req.body.token.toString()) {
 
-                    db.collection("users").updateOne({ email: req.body.email }, { $set: { has_submitted: true, data:req.body.data } }, function(err, result){
+                    db.collection("users").updateOne({ email: req.body.email }, { $set: { has_submitted: true, data: req.body.data } }, function (err, result) {
                         //console.log(result)
-                        if(err){
+                        if (err) {
                             res.status(500).send()
                         }
-                        else if(result){
+                        else if (result) {
                             console.log("survey submitted")
                             res.send()
                         }
-                        else{
+                        else {
                             res.status(500).send()
                         }
                     })
 
-                } else{
+                } else {
                     res.status(401).send()
                 }
             }
-            else{
+            else {
                 res.status(401).send()
             }
         })
@@ -166,9 +169,19 @@ this.runApp = function (db) {
             res.send(result.toString())
         })
     })
+    if (process.env.NODE_ENV == "production") {
+        app.use(express.static(path.join(__dirname, 'build')));
 
+    }
     app.get("/*", function (req, res) {
-        res.send("this is where the react app will get returned")
+        if (process.env.NODE_ENV == "production") {
+
+            res.sendFile(path.join(__dirname, 'build', 'index.html'));
+            //res.send("this is where the react app will get returned")
+
+        } else {
+            res.send("this is where the react app will get returned")
+        }
     })
 
     app.listen(4000, function () {

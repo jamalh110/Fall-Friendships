@@ -14,6 +14,8 @@ import State from "./State.js";
 
 import * as serviceWorker from "./serviceWorker";
 
+const proxy = require("http-proxy-middleware");
+
 class Wrapper extends React.Component {
   componentWillMount(){
 
@@ -29,10 +31,11 @@ class Wrapper extends React.Component {
       });
     }
     window.addEventListener('beforeunload', function(event) {
-      this.props.history.push(window.location.pathname, { state: this.state.state });
+      this.props.history.replace(window.location.pathname, { state: this.state.state });
     }.bind(this));
   }
   componentWillUnmount(){
+    
   }
 
   setStatePass(object){

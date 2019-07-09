@@ -8,7 +8,7 @@ App.backendURL = "/api/";
 //ONLY GETS CALLED WHEN IT IS BOUND TO A COMPONENT'S THIS
 App.googleResponseSuccess = function(response) {
   //console.log(response);
-
+  //console.log("hi2")
   fetch(App.backendURL + "authenticate_login_token", {
     method: "post",
     headers: { "Content-Type": "application/json" },
