@@ -46,8 +46,8 @@ class HomePage extends React.Component {
         onFailure={this.responseGoogleSuccess}
         cookiePolicy={"single_host_origin"}
         render={renderProps => (
-          <div className={classes.loginButton}>
-            <img src={gloginimage} onClick={renderProps.onClick} />
+          <div >
+            <img className={classes.loginButton} src={gloginimage} onClick={renderProps.onClick} />
           </div>
         )}
       />

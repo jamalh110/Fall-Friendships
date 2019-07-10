@@ -30,7 +30,10 @@ class Wrapper extends React.Component {
 
       });
     }
-    window.addEventListener('beforeunload', function(event) {
+    var isOnIOS = navigator.userAgent.match(/iPad/i)|| navigator.userAgent.match(/iPhone/i);
+    var eventName = isOnIOS ? "pagehide" : "beforeunload";
+
+    window.addEventListener(eventName, function(event) {
       this.props.history.replace(window.location.pathname, { state: this.state.state });
     }.bind(this));
   }

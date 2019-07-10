@@ -18,7 +18,7 @@
     font-size: 2em;
 }
 
-.loginButton :hover {
+.loginButton:hover {
     cursor: pointer;
     padding: 0;
 }
@@ -28,10 +28,10 @@
     max-width: 150px;
 }
 
-.loginButton img {
-    padding: 0;
-    width: 175px;
+.loginButton {
     height: 42px;
+    min-width: 175px;
+    display: inline-block
 }
 
 .homeTexts {
