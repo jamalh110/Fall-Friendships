@@ -62,9 +62,7 @@ class NavigationBar extends React.Component {
                   onFailure={this.responseGoogleSuccess}
                   cookiePolicy={"single_host_origin"}
                   render={renderProps => (
-                    <div className={classes.loginButton}>
-                      <img src={gloginimage} onClick={renderProps.onClick} />
-                    </div>
+                     <p className={classes.signIn} onClick={renderProps.onClick}>Sign In</p>
                   )}
                 />
               </Nav>
