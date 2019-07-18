@@ -11,7 +11,7 @@ import fflogo from "../../Assets/logo.png";
 class HomePage extends React.Component {
 
   componentWillMount() {
-    
+
     this.setState({
       count: "loading"
     });
@@ -47,8 +47,10 @@ class HomePage extends React.Component {
         onFailure={this.responseGoogleSuccess}
         cookiePolicy={"single_host_origin"}
         render={renderProps => (
-          <div >
-            <img className={classes.loginButton} src={gloginimage} onClick={renderProps.onClick} />
+          <div>
+            <button className={[classes.loginButton, classes.googleLogo].join(' ')} onClick={renderProps.onClick}>
+              <p>Sign in with Google</p>
+            </button>
           </div>
         )}
       />
@@ -73,7 +75,7 @@ class HomePage extends React.Component {
           googleCallBack={App.googleResponseSuccess.bind(this)}
         />
         <div className={classes.homeTexts}>
-          
+
           <h1>Fall Friendships</h1>
           <br></br>
           <img src={fflogo} />
