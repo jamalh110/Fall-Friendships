@@ -5,7 +5,8 @@ import { GoogleLogin } from "react-google-login";
 import App from "../../App.js";
 import State from "../../State.js";
 import gloginimage from "../../Assets/web/2x/btn_google_signin_light_normal_web@2x.png";
-import fflogo from "../../Assets/yeet.png";
+//import fflogo from "../../Assets/yeet.png";
+import fflogo from "../../Assets/logo.png";
 
 class HomePage extends React.Component {
 
