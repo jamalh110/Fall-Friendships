@@ -80,17 +80,9 @@ class HomePage extends React.Component {
           <br></br>
           <img src={fflogo} />
           <h3>Start the year off right. Meet someone new.</h3>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </p>
-          <h4>{this.state.count} participants and counting</h4>
+          <h4>Sign Up Below.</h4>
           <div className={classes.homeDecBtn}> {decision}</div>
+          <h4 className={classes.pplCount}>{this.state.count} participants and counting</h4>
         </div>
       </div>
     );
