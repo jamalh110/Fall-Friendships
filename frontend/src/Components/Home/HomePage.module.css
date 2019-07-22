@@ -1,84 +1,84 @@
 .mainHome {
-  text-align: center;
-  font-family: "Roboto";
-  background-color: #f8f0d3;
-  color: #303c6c;
-  min-height: 100vh;
+    text-align: center;
+    font-family: "Roboto";
+    background-color: rgba(255, 255, 255, 0);
+    color: #303c6c;
+    min-height: 100vh;
 }
 
 .mainHome h1 {
-  font-family: "Gochi Hand", cursive;
-  margin-top: 40px;
-  margin-bottom: 0px;
-  font-size: 6em;
+    font-family: "Gochi Hand", cursive;
+    margin-top: 40px;
+    margin-bottom: 0px;
+    font-size: 6em;
 }
 
 .mainHome h3 {
-  margin: 30px 0px;
-  font-size: 2em;
+    margin: 30px 0px;
+    font-size: 2em;
 }
 
 .homeTexts img {
-  width: 60%;
-  max-width: 150px;
+    width: 60%;
+    max-width: 150px;
 }
 
 .loginButton {
-  position: relative;
-  height: 40px;
-  min-width: 200px;
-  background: #FFFFFF;
-  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.12), 0 2px 2px 0 rgba(0, 0, 0, 0.24);
-  border-radius: 2px;
-  font-family: "Roboto";
-  font-size: 14px;
-  color: rgba(0, 0, 0, 0.54);
-  letter-spacing: 0.22px;
+    position: relative;
+    height: 40px;
+    min-width: 200px;
+    background: #FFFFFF;
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.12), 0 2px 2px 0 rgba(0, 0, 0, 0.24);
+    border-radius: 2px;
+    font-family: "Roboto";
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.54);
+    letter-spacing: 0.22px;
 }
 
 .loginButton p {
-  padding: 0px 20px 0px 45px;
-  margin: 0;
-  display: inline-block;
+    padding: 0px 20px 0px 45px;
+    margin: 0;
+    display: inline-block;
 }
 
 .loginButton:hover {
-  cursor: pointer;
-  background-color: #fff2c2;
-  transition: .3s background-color, .15s color ease-out, .15s border-color ease-out;
+    cursor: pointer;
+    background-color: #fff2c2;
+    transition: .3s background-color, .15s color ease-out, .15s border-color ease-out;
 }
 
 .loginButton:focus {
-  outline: 5px auto rgba(207, 151, 31, 0.7)
+    outline: 5px auto rgba(207, 151, 31, 0.7)
 }
 
 .googleLogo:before {
-  content: "";
-  position: absolute;
-  background-image: url("../../Assets/web/vector/GoogleLogo.svg");
-  background-size: 100%;
-  top: 9px;
-  left: 10px;
-  width: 20px;
-  height: 20px;
+    content: "";
+    position: absolute;
+    background-image: url("../../Assets/web/vector/GoogleLogo.svg");
+    background-size: 100%;
+    top: 9px;
+    left: 10px;
+    width: 20px;
+    height: 20px;
 }
 
 .homeTexts {
-  margin: 0 auto;
-  width: 70%;
+    margin: 0 auto;
+    width: 70%;
 }
 
 @media(max-width: 600px) {
-  .homeTexts h1 {
-    font-size: 45px
-  }
+    .homeTexts h1 {
+        font-size: 45px
+    }
 }
 
 .homeTexts p {
-  line-height: 2;
+    line-height: 2;
 }
 
 .homeDecBtn {
-  padding-top: 50px;
-  padding-bottom: 50px;
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
