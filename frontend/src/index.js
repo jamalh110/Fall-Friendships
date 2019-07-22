@@ -64,19 +64,15 @@ class Wrapper extends React.Component {
   render() {
     console.log("renduy")
     return (
+      <div>
         <div class = {classes.fallingLeaves} id = "leafdiv">
-         
           <Route exact path="/" render={(props) => <HomePage {...props} state = {this.state} setState={this.setStatePass.bind(this)} />}/>
           <Route path="/about" render={(props) => <About {...props} state = {this.state} setState={this.setStatePass.bind(this)} />}/>
           <Route path="/contact" render={(props) => <Contact {...props} state = {this.state} setState={this.setStatePass.bind(this)} />}/>
           <Route path="/survey" render={(props) => <Survey {...props} state = {this.state} setState={this.setStatePass.bind(this)} />}/>
          
-         <script
-          dangerouslySetInnerHTML={{ __html:
-            //{leafjs}
-            "console.log(\"hi\")"
-          }}
-        />
+        
+        </div>
         </div>
     )
   }

@@ -27,7 +27,8 @@
         border-radius: 50px;*/
         background: url(http://sarahmhigley.com/static/images/sidebar-bg.png) no-repeat center center;
         background-size: cover;
-        overflow: hidden;
+        overflow-y: scroll;
+        overflow-x: hidden;
     }
     
     .leafScene {
