@@ -68,17 +68,25 @@
     width: 70%;
 }
 
-@media(max-width: 600px) {
-    .homeTexts h1 {
-        font-size: 45px
-    }
-}
-
 .homeTexts p {
     line-height: 2;
 }
 
 .homeDecBtn {
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.pplCount {
+    padding-bottom: 60px;
+    margin-bottom: 0;
+}
+
+
+/* FOR MOBILE */
+
+@media(max-width: 600px) {
+    .homeTexts h1 {
+        font-size: 45px
+    }
 }
