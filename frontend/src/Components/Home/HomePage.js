@@ -2,6 +2,7 @@ import React from "react";
 import classes from "./HomePage.module.css";
 import Navbar from "../NavigationBar/NavigationBar";
 import { GoogleLogin } from "react-google-login";
+import { CSSTransition } from 'react-transition-group';
 import App from "../../App.js";
 import State from "../../State.js";
 import gloginimage from "../../Assets/web/2x/btn_google_signin_light_normal_web@2x.png";
@@ -78,7 +79,6 @@ class HomePage extends React.Component {
 
           <h1>Fall Friendships</h1>
           <br></br>
-          <img src={fflogo} />
           <h3>Start the year off right. Meet someone new.</h3>
           <h4>Sign Up Below.</h4>
           <div className={classes.homeDecBtn}> {decision}</div>
