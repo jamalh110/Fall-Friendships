@@ -1,0 +1,55 @@
+    body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    
+    code {
+        font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+    }
+    
+    .hi {
+        background-color: aqua;
+    }
+    
+    .fallingLeaves {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        width: 100%;
+        z-index: -1;
+        /*max-width: 880px;
+        max-height: 880px;*/
+        transform: translate(-50%, 0);
+        /*border: 20px solid #fff;
+        border-radius: 50px;*/
+        background: url(http://sarahmhigley.com/static/images/sidebar-bg.png) no-repeat center center;
+        background-size: cover;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+    
+    .leafScene {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        bottom: 0;
+        width: 100%;
+        transform-style: preserve-3d;
+    }
+    
+    .leafScene div {
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        width: 20px;
+        height: 20px;
+        background: url(http://sarahmhigley.com/static/images/leaf.svg) no-repeat;
+        background-size: 100%;
+        transform-style: preserve-3d;
+        backface-visibility: visible;
+    }
