@@ -15,7 +15,6 @@
     background-color: #f8f0d3;
     height: 100%;
     overflow-y: scroll;
-    min-height: 100vh;
     -webkit-overflow-scrolling: auto;
 }
 

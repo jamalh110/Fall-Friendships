@@ -182,7 +182,7 @@ class SurveyClass extends React.Component {
         />
         {/*<h1 className={classes.title}>Friendship Survey</h1>*/}
         {/*<div className={classes.surveyDiv}>*/}
-        <div style = {{marginLeft:"15px", marginRight:"15px",backgroundColor:"rgba(255, 255, 255, 0.85)"}}>
+        <div style = {{overflow:"scroll",height:"auto",marginLeft:"15px", marginRight:"15px", marginBottom:"200px",backgroundColor:"rgba(255, 255, 255, 0.85)"}}>
           <p style = {{position:"absolute",zIndex:"-1", fontSize:"40px",opacity:"0"}}>If the survey hasn't loaded, simply reload the page</p>
           <Survey.Survey
             model={survey}
