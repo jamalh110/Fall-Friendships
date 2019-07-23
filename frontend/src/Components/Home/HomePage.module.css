@@ -8,7 +8,7 @@
 
 .mainHome::after {
     content: "";
-    background-image: url("../../Assets/background.jpg");
+    /*background-image: url("../../Assets/background.jpg");*/
     background-size: cover;
     opacity: 0.6;
     top: 0;
