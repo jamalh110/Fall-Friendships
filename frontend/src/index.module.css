@@ -20,6 +20,7 @@
         left: 50%;
         width: 100%;
         z-index: -1;
+        -webkit-transform: translate3d(0, 0, 0);
         /*max-width: 880px;
         max-height: 880px;*/
         transform: translate(-50%, 0);
@@ -27,7 +28,7 @@
         border-radius: 50px;*/
         background: url(http://sarahmhigley.com/static/images/sidebar-bg.png) no-repeat center center;
         background-size: cover;
-        overflow-y: scroll;
+        overflow-y: hidden;
         overflow-x: hidden;
     }
     
@@ -36,6 +37,7 @@
         top: 0;
         left: 0;
         z-index: -1;
+        -webkit-transform: translate3d(0, 0, 0);
         bottom: 0;
         width: 100%;
         transform-style: preserve-3d;
@@ -44,6 +46,7 @@
     .leafScene div {
         position: absolute;
         z-index: -1;
+        -webkit-transform: translate3d(0, 0, 0);
         top: 0;
         left: 0;
         width: 20px;
