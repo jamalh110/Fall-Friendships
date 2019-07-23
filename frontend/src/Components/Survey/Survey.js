@@ -179,6 +179,7 @@ class SurveyClass extends React.Component {
         />
         {/*<h1 className={classes.title}>Friendship Survey</h1>*/}
         <div className={classes.surveyDiv}>
+          <p style = {{position:"absolute",zIndex:"-1", fontSize:"40px"}}>If the survey hasn't loaded, simply reload the page</p>
           <Survey.Survey
             model={survey}
             onComplete={this.onCompleteFollowup.bind(this)}
