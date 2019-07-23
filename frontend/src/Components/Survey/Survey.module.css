@@ -1,11 +1,11 @@
-.surveyDiv {
+/*.surveyDiv {
     width: 95%;
     height: 100%;
     overflow-y: scroll;
     margin: 0 auto;
     background-color: rgba(255, 255, 255, 0.85);
     -webkit-overflow-scrolling: touch;
-}
+}*/
 
 .title {
     text-align: center;
@@ -16,7 +16,7 @@
     height: 100%;
     overflow-y: scroll;
     min-height: 100vh;
-    -webkit-overflow-scrolling: touch;
+    -webkit-overflow-scrolling: auto;
 }
 
 .footer {
