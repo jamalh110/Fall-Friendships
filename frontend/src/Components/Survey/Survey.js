@@ -10,6 +10,9 @@ import classes from "./Survey.module.css";
 
 
 class SurveyClass extends React.Component {
+  componentDidMount(){
+    console.log("routed to survey")
+  }
   componentWillUnmount(){
     this.props.setState({
       state: Object.assign(this.props.state.state, {
@@ -178,14 +181,16 @@ class SurveyClass extends React.Component {
           googleCallBack={App.googleResponseSuccess.bind(this)}
         />
         {/*<h1 className={classes.title}>Friendship Survey</h1>*/}
-        <div className={classes.surveyDiv}>
+        {/*<div className={classes.surveyDiv}>*/}
+        <div style = {{marginLeft:"15px", marginRight:"15px",backgroundColor:"rgba(255, 255, 255, 0.85)"}}>
           <p style = {{position:"absolute",zIndex:"-1", fontSize:"40px"}}>If the survey hasn't loaded, simply reload the page</p>
           <Survey.Survey
             model={survey}
             onComplete={this.onCompleteFollowup.bind(this)}
             css={myCss}
           />
-        </div>
+          </div>
+       
       </div>
     );
   }
