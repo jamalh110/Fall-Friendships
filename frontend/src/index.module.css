@@ -9,8 +9,10 @@
         font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
     }
     
-    .hi {
-        background-color: aqua;
+    .enclosedDiv {
+        max-height: "100%";
+        overflow: "scroll";
+        -webkit-overflow-scrolling: touch;
     }
     
     .fallingLeaves {
