@@ -2,6 +2,7 @@ import React from "react";
 import classes from "./HomePage.module.css";
 import Navbar from "../NavigationBar/NavigationBar";
 import { GoogleLogin } from "react-google-login";
+import Fade from 'react-reveal/Fade';
 import App from "../../App.js";
 import State from "../../State.js";
 import gloginimage from "../../Assets/web/2x/btn_google_signin_light_normal_web@2x.png";
@@ -75,14 +76,18 @@ class HomePage extends React.Component {
           googleCallBack={App.googleResponseSuccess.bind(this)}
         />
         <div className={classes.homeTexts}>
-
-          <h1>Fall Friendships</h1>
+          <Fade>
+            <h1>Fall Friendships</h1>
+          </Fade>
           <br></br>
-          <img src={fflogo} />
-          <h3>Start the year off right. Meet someone new.</h3>
-          <h4>Sign Up Below.</h4>
-          <div className={classes.homeDecBtn}> {decision}</div>
-          <h4 className={classes.pplCount}>{this.state.count} participants and counting</h4>
+          <Fade delay={750}>
+            <h3>Start the year off right. Meet someone new.</h3>
+            <h4>Sign Up Below.</h4>
+            <div className={classes.homeDecBtn}> {decision}</div>
+          </Fade>
+          <Fade delay={1500}>
+            <h4 className={classes.pplCount}>{this.state.count} participants and counting</h4>
+          </Fade>
         </div>
       </div>
     );

@@ -6,11 +6,24 @@
     min-height: 100vh;
 }
 
+.mainHome::after {
+    content: "";
+    background-image: url("../../Assets/background.jpg");
+    background-size: cover;
+    opacity: 0.6;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+}
+
 .mainHome h1 {
-    font-family: "Gochi Hand", cursive;
+    font-family: "League Script", cursive;
     margin-top: 40px;
     margin-bottom: 0px;
-    font-size: 6em;
+    font-size: 8em;
 }
 
 .mainHome h3 {
@@ -85,8 +98,8 @@
 
 /* FOR MOBILE */
 
-@media(max-width: 600px) {
+@media(max-width: 800px) {
     .homeTexts h1 {
-        font-size: 45px
+        font-size: 50px
     }
 }

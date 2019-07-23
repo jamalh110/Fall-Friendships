@@ -51,7 +51,7 @@
         left: 0;
         width: 20px;
         height: 20px;
-        background: url(http://sarahmhigley.com/static/images/leaf.svg) no-repeat;
+        background: url("Assets/maple-leaf.svg") no-repeat;
         background-size: 100%;
         transform-style: preserve-3d;
         backface-visibility: visible;
