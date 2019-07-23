@@ -1,24 +1,28 @@
 .surveyDiv {
-  width: 95%;
-  margin: 0 auto;
-  background-color:rgba(255, 255, 255, 0.85)
+    width: 95%;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.85);
+    -webkit-overflow-scrolling: auto;
 }
 
 .title {
-  text-align: center;
+    text-align: center;
 }
 
 .surveyPage {
-  background-color: #f8f0d3;
-  min-height: 100vh;
+    background-color: #f8f0d3;
+    min-height: 100vh;
+    -webkit-overflow-scrolling: auto;
 }
+
 .footer {
-  background-color:rgba(0,0,0,.03);
-  border-top: 1px solid rgba(0,0,0,.125);
-  padding-right: 20px;
-  text-align: right;
+    background-color: rgba(0, 0, 0, .03);
+    border-top: 1px solid rgba(0, 0, 0, .125);
+    padding-right: 20px;
+    text-align: right;
 }
+
 .padding {
-  margin-top: 15px;
-  margin-bottom: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
