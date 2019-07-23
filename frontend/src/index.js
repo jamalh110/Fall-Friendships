@@ -66,7 +66,7 @@ class Wrapper extends React.Component {
     return (
       <div>
         <div class={classes.fallingLeaves} id="leafdiv">
-        <div class = {classes.enclosedDiv}>
+        <div class = {classes.enclosedDiv} >
           <Route exact path="/" render={(props) => <HomePage {...props} state={this.state} setState={this.setStatePass.bind(this)} />} />
           <Route path="/about" render={(props) => <About {...props} state={this.state} setState={this.setStatePass.bind(this)} />} />
           <Route path="/contact" render={(props) => <Contact {...props} state={this.state} setState={this.setStatePass.bind(this)} />} />

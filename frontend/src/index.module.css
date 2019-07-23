@@ -10,8 +10,8 @@
     }
     
     .enclosedDiv {
-        max-height: "100%";
-        overflow: "scroll";
+        max-height: 100%;
+        overflow: scroll;
         -webkit-overflow-scrolling: touch;
     }
     
