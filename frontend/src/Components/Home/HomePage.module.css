@@ -2,7 +2,8 @@
     text-align: center;
     font-family: "Roboto";
     background-color: rgba(255, 255, 255, 0);
-    color: #303c6c;
+    /*color: #303c6c;*/
+    /*color: #c49102;*/
     min-height: 100vh;
     max-width: 100%;
 }
@@ -22,6 +23,7 @@
 }
 
 .mainHome h1 {
+    text-shadow: 5px 5px 1px rgba(218, 104, 15);
     font-family: "League Script", cursive;
     margin-top: 40px;
     margin-bottom: 0px;
@@ -29,8 +31,13 @@
 }
 
 .mainHome h3 {
+    text-shadow: 0px 0px 5px #f8f0d3;
     margin: 30px 0px;
     font-size: 2em;
+}
+
+.mainHome h4 {
+    text-shadow: 0px 0px 5px #f8f0d3;
 }
 
 .homeTexts img {
