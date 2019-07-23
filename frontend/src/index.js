@@ -64,7 +64,6 @@ class Wrapper extends React.Component {
   render() {
     console.log("renduy")
     return (
-      <div>
         <div class={classes.fallingLeaves} id="leafdiv">
         <div class = {classes.enclosedDiv} >
           <Route exact path="/" render={(props) => <HomePage {...props} state={this.state} setState={this.setStatePass.bind(this)} />} />
@@ -74,7 +73,6 @@ class Wrapper extends React.Component {
         </div>
 
         </div>
-      </div>
     )
   }
 }
