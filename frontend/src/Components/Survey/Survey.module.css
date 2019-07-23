@@ -2,7 +2,7 @@
     width: 95%;
     margin: 0 auto;
     background-color: rgba(255, 255, 255, 0.85);
-    -webkit-overflow-scrolling: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .title {
@@ -12,7 +12,7 @@
 .surveyPage {
     background-color: #f8f0d3;
     min-height: 100vh;
-    -webkit-overflow-scrolling: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .footer {
