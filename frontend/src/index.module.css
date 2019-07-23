@@ -4,15 +4,15 @@
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
     }
-    
+
     code {
         font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
     }
-    
+
     .hi {
         background-color: aqua;
     }
-    
+
     .fallingLeaves {
         position: absolute;
         top: 0;
@@ -25,12 +25,10 @@
         transform: translate(-50%, 0);
         /*border: 20px solid #fff;
         border-radius: 50px;*/
-        background: url(http://sarahmhigley.com/static/images/sidebar-bg.png) no-repeat center center;
-        background-size: cover;
-        overflow-y: scroll;
+        overflow-y: hidden;
         overflow-x: hidden;
     }
-    
+
     .leafScene {
         position: absolute;
         top: 0;
@@ -40,7 +38,7 @@
         width: 100%;
         transform-style: preserve-3d;
     }
-    
+
     .leafScene div {
         position: absolute;
         z-index: -1;
@@ -48,7 +46,7 @@
         left: 0;
         width: 20px;
         height: 20px;
-        background: url(http://sarahmhigley.com/static/images/leaf.svg) no-repeat;
+        background: url("Assets/maple-leaf.svg") no-repeat;
         background-size: 100%;
         transform-style: preserve-3d;
         backface-visibility: visible;
