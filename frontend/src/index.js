@@ -69,8 +69,8 @@ class Wrapper extends React.Component {
           <Route exact path="/" render={(props) => <HomePage {...props} state={this.state} setState={this.setStatePass.bind(this)} />} />
           <Route path="/about" render={(props) => <About {...props} state={this.state} setState={this.setStatePass.bind(this)} />} />
           <Route path="/contact" render={(props) => <Contact {...props} state={this.state} setState={this.setStatePass.bind(this)} />} />
-          <Route path="/survey" render={(props) => <Survey {...props} state={this.state} setState={this.setStatePass.bind(this)} />} />
         </div>
+        <Route path="/survey" render={(props) => <Survey {...props} state={this.state} setState={this.setStatePass.bind(this)} />} />
 
         </div>
     )
