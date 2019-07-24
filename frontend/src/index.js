@@ -53,15 +53,15 @@ class Wrapper extends React.Component {
     window.addEventListener(eventName, function (event) {
       this.props.history.replace(window.location.pathname, { state: this.state.state });
     }.bind(this));
-/*
+
+    //IF YOU DONT DO THIS, YOU GET A WHITE SCREEN ON MOBILE BUT IT WORKS ON DESKTOP
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Mobile|Silk|Opera Mini/i.test(navigator.userAgent)) {
-      // Take the user to a different screen here.
+
       document.getElementsByTagName("body")[0].style.height="100%"
       document.getElementsByTagName("body")[0].style.width="100%"
       document.getElementsByTagName("html")[0].style.height="100%"
       document.getElementsByTagName("html")[0].style.width="100%"
     }
-*/
   }
   componentWillUnmount() {
 
