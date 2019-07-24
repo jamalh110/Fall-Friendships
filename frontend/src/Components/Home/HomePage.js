@@ -80,12 +80,12 @@ class HomePage extends React.Component {
             <h1>Fall Friendships</h1>
           </Fade>
           <br></br>
-          <Fade delay={750}>
+          <Fade delay={500}>
             <h3>Start the year off right. Meet someone new.</h3>
             <h4>Sign Up Below.</h4>
             <div className={classes.homeDecBtn}> {decision}</div>
           </Fade>
-          <Fade delay={1500}>
+          <Fade delay={1000}>
             <h4 className={classes.pplCount}>{this.state.count} participants and counting</h4>
           </Fade>
         </div>

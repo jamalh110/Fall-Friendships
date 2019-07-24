@@ -15,7 +15,7 @@
     background-color: #f8f0d3;
     height: 100%;
     overflow-y: scroll;
-    -webkit-overflow-scrolling: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .footer {
