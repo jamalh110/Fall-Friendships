@@ -1,91 +1,96 @@
 .MainNavbar {
-  /*background-color: #f7e08d;*/
-  background-color: rgba(218, 104, 15, 0.3);
-  display: flex;
-  text-align: center;
-  align-content: center;
-  font-family: "Roboto";
+    /*background-color: #f7e08d;*/
+    background-color: rgba(218, 104, 15, 0.3);
+    display: flex;
+    text-align: center;
+    align-content: center;
+    font-family: "Roboto";
+}
+
+.collapseStyle {
+    align-items: flex-end
 }
 
 .NavLinks {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-end;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
 }
 
 .signIn {
-  align-items: center;
-  font-weight: bold;
-  font-size: 1.2em;
-  color: #303c6c;
-  padding-top: 8px;
-  padding-left: 30px;
-  padding-right: 15px;
-  margin-bottom: 0px;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #303c6c;
+    padding-top: 8px;
+    margin-bottom: 8px;
+    padding-left: 20px;
 }
 
 .signIn:hover {
-  cursor: pointer;
-  color: #000000;
-  transition: .15s color ease-out;
+    cursor: pointer;
+    color: #000000;
+    transition: .15s color ease-out;
 }
 
 .fflogo {
-  height: 35px;
-  widows: 35px;
-  padding-right: 10px;
+    height: 35px;
+    widows: 35px;
+    padding-right: 10px;
 }
 
 .brandBox {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .brandBox p {
-  font-weight: bold;
-  font-size: 1.2em;
-  color: #303c6c;
-  padding-bottom: 0px;
-  margin-bottom: 0px;
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #303c6c;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
 }
 
 .nlink p {
-  font-weight: bold;
-  font-size: 1.2em;
-  color: #303c6c;
-  padding-bottom: 0px;
-  margin-bottom: 0px;
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #303c6c;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
 }
 
 .nlink p:hover {
-  font-weight: bold;
-  font-size: 1.2em;
-  color: #000000;
-  transition: .15s color ease-out;
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #000000;
+    transition: .15s color ease-out;
 }
 
 .namediv {
-  display: flex;
-  align-items: center;
-  margin-right: 20px;
-  margin-left: 20px;
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    margin-left: 20px;
 }
 
 .namediv p {
-  font-weight: bold;
-  font-size: 1.2em;
-  color: #303c6c;
-  padding-bottom: 0px;
-  margin-bottom: 0px;
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #303c6c;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
 }
 
+
 /* FOR MOBILE */
+
 @media(max-width: 600px) {
-  .signIn {
-    padding-top: 6px;
-    padding-left: 0;
-    padding-right: 0;
-  }
+    .signIn {
+        padding-top: 6px;
+        padding-left: 0;
+        padding-right: 0;
+    }
 }

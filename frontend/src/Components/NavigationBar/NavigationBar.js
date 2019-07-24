@@ -1,6 +1,8 @@
 import React from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
+import NavDropdown from "react-bootstrap/NavDropdown"
+
 import { GoogleLogin } from "react-google-login";
 import classes from "./NavigationBar.module.css";
 import App from "../../App.js";
@@ -21,19 +23,20 @@ class NavigationBar extends React.Component {
   render() {
     if (this.props.state.loggedIn != true) {
       return (
-          <Navbar sticky = "top" className={classes.MainNavbar} expand="md">
-            <Navbar.Brand href="">
-              <div className={classes.brandBox}>
-                <img className={classes.fflogo} src={fflogo} />
-                <p>thc x cba</p>
-              </div>
-            </Navbar.Brand>
-            <Navbar.Toggle aria-controls="navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav" className={classes.NavLinks}>
-              <Nav>
+        <Navbar sticky="top" className={classes.MainNavbar} expand="md">
+          <Navbar.Brand href="">
+            <div className={classes.brandBox}>
+              <img className={classes.fflogo} src={fflogo} />
+              <p>thc x cba</p>
+            </div>
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
+            <div style={{ paddingRight: "15px" }}>
+              <Nav className={classes.collapseStyle}>
                 <Nav.Link
                   className={classes.nlink}
-                  onClick={function() {
+                  onClick={function () {
                     this.props.history.push("/");
                   }.bind(this)}
                 >
@@ -41,7 +44,7 @@ class NavigationBar extends React.Component {
                 </Nav.Link>
                 <Nav.Link
                   className={classes.nlink}
-                  onClick={function() {
+                  onClick={function () {
                     this.props.history.push("/about");
                   }.bind(this)}
                 >
@@ -49,7 +52,7 @@ class NavigationBar extends React.Component {
                 </Nav.Link>
                 <Nav.Link
                   className={classes.nlink}
-                  onClick={function() {
+                  onClick={function () {
                     this.props.history.push("/contact");
                   }.bind(this)}
                 >
@@ -62,12 +65,13 @@ class NavigationBar extends React.Component {
                   onFailure={this.responseGoogleSuccess}
                   cookiePolicy={"single_host_origin"}
                   render={renderProps => (
-                     <p className={classes.signIn} onClick={renderProps.onClick}>Sign In</p>
+                    <p className={classes.signIn} onClick={renderProps.onClick}>Sign In</p>
                   )}
                 />
               </Nav>
-            </Navbar.Collapse>
-          </Navbar>
+            </div>
+          </Navbar.Collapse>
+        </Navbar>
       );
     } else {
       return (
@@ -78,45 +82,44 @@ class NavigationBar extends React.Component {
               <p>thc x cba</p>
             </div>
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls="navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav" className={classes.NavLinks}>
-            <Nav>
-              <div className={classes.namediv}>
-                <p>Welcome, {this.props.state.firstName}!</p>
-              </div>
-              <Nav.Link
-                className={classes.nlink}
-                onClick={function () {
-                  this.props.history.push("/");
-                }.bind(this)}
-              >
-                <p>Home</p>
-              </Nav.Link>
-              <Nav.Link
-                className={classes.nlink}
-                onClick={function () {
-                  this.props.history.push("/about");
-                }.bind(this)}
-              >
-                <p>About</p>
-              </Nav.Link>
-              <Nav.Link
-                className={classes.nlink}
-                onClick={function () {
-                  this.props.history.push("/contact");
-                }.bind(this)}
-              >
-                <p>Contact</p>
-              </Nav.Link>
-              <Nav.Link
-                className={classes.nlink}
-                onClick={function () {
-                  this.props.history.push("/survey");
-                }.bind(this)}
-              >
-                <p>Take Survey</p>
-              </Nav.Link>
-            </Nav>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
+            <div style={{ paddingRight: "15px" }}>
+              <Nav className={classes.collapseStyle}>
+                <Nav.Link
+                  className={classes.nlink}
+                  onClick={function () {
+                    this.props.history.push("/");
+                  }.bind(this)}
+                >
+                  <p>Home</p>
+                </Nav.Link>
+                <Nav.Link
+                  className={classes.nlink}
+                  onClick={function () {
+                    this.props.history.push("/about");
+                  }.bind(this)}
+                >
+                  <p>About</p>
+                </Nav.Link>
+                <Nav.Link
+                  className={classes.nlink}
+                  onClick={function () {
+                    this.props.history.push("/contact");
+                  }.bind(this)}
+                >
+                  <p>Contact</p>
+                </Nav.Link>
+                <Nav.Link
+                  className={classes.nlink}
+                  onClick={function () {
+                    this.props.history.push("/survey");
+                  }.bind(this)}
+                >
+                  <p>Take Survey</p>
+                </Nav.Link>
+              </Nav>
+            </div>
           </Navbar.Collapse>
         </Navbar>
       );
