@@ -53,6 +53,15 @@ class Wrapper extends React.Component {
     window.addEventListener(eventName, function (event) {
       this.props.history.replace(window.location.pathname, { state: this.state.state });
     }.bind(this));
+
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Mobile|Silk|Opera Mini/i.test(navigator.userAgent)) {
+      // Take the user to a different screen here.
+      document.getElementsByTagName("body")[0].style.height="100%"
+      document.getElementsByTagName("body")[0].style.width="100%"
+      document.getElementsByTagName("html")[0].style.height="100%"
+      document.getElementsByTagName("html")[0].style.width="100%"
+    }
+
   }
   componentWillUnmount() {
 
@@ -65,12 +74,12 @@ class Wrapper extends React.Component {
     console.log("renduy")
     return (
       <div class={classes.fallingLeaves} id="leafdiv">
-        
-          <Route exact path="/" render={(props) => (<div class={classes.enclosedDiv} ><HomePage {...props} state={this.state} setState={this.setStatePass.bind(this)} /> </div>)} />
-          <Route path="/about" render={(props) => (<div class={classes.enclosedDiv} ><About {...props} state={this.state} setState={this.setStatePass.bind(this)} /> </div>)} />
-          <Route path="/contact" render={(props) => (<div class={classes.enclosedDiv} ><Contact {...props} state={this.state} setState={this.setStatePass.bind(this)} /></div>)} />
-          <Route path="/survey" render={(props) => <Survey {...props} state={this.state} setState={this.setStatePass.bind(this)} />} />
-        
+
+        <Route exact path="/" render={(props) => (<div class={classes.enclosedDiv} ><HomePage {...props} state={this.state} setState={this.setStatePass.bind(this)} /> </div>)} />
+        <Route path="/about" render={(props) => (<div class={classes.enclosedDiv} ><About {...props} state={this.state} setState={this.setStatePass.bind(this)} /> </div>)} />
+        <Route path="/contact" render={(props) => (<div class={classes.enclosedDiv} ><Contact {...props} state={this.state} setState={this.setStatePass.bind(this)} /></div>)} />
+        <Route path="/survey" render={(props) => <Survey {...props} state={this.state} setState={this.setStatePass.bind(this)} />} />
+
       </div>
     )
   }
