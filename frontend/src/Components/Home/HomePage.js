@@ -7,7 +7,7 @@ import App from "../../App.js";
 import State from "../../State.js";
 import gloginimage from "../../Assets/web/2x/btn_google_signin_light_normal_web@2x.png";
 //import fflogo from "../../Assets/yeet.png";
-import fflogo from "../../Assets/logo.png";
+import fflogo from "../../Assets/yeet.png";
 
 class HomePage extends React.Component {
 
@@ -78,6 +78,7 @@ class HomePage extends React.Component {
         <div className={classes.homeTexts}>
           <Fade>
             <h1>Fall Friendships</h1>
+            <img className={classes.fflogo} src={fflogo} />
           </Fade>
           <br></br>
           <Fade delay={500}>

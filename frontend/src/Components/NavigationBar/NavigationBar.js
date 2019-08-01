@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown"
+import { Button } from 'react-bootstrap';
 
 import { GoogleLogin } from "react-google-login";
 import classes from "./NavigationBar.module.css";
@@ -9,6 +10,7 @@ import App from "../../App.js";
 import browserHistory from "react-router";
 import gloginimage from "../../Assets/web/2x/btn_google_signin_light_normal_web@2x.png";
 import fflogo from "../../Assets/logo.png";
+import cbalogo from "../../Assets/cbalogo.png";
 
 class NavigationBar extends React.Component {
   componentWillMount() {
@@ -27,7 +29,8 @@ class NavigationBar extends React.Component {
           <Navbar.Brand href="">
             <div className={classes.brandBox}>
               <img className={classes.fflogo} src={fflogo} />
-              <p>thc x cba</p>
+              <p>THC x CBA</p>
+              <img className={classes.fflogo} src={cbalogo} />
             </div>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -64,8 +67,8 @@ class NavigationBar extends React.Component {
                   onSuccess={this.props.googleCallBack}
                   onFailure={this.responseGoogleSuccess}
                   cookiePolicy={"single_host_origin"}
-                  render={renderProps => (
-                    <p className={classes.signIn} onClick={renderProps.onClick}>Sign In</p>
+                  render={renderProps => ( 
+                    <Button className={classes.signInButton} variant="light" onClick={renderProps.onClick}> Sign In </Button>
                   )}
                 />
               </Nav>
@@ -80,6 +83,7 @@ class NavigationBar extends React.Component {
             <div className={classes.brandBox}>
               <img className={classes.fflogo} src={fflogo} />
               <p>thc x cba</p>
+              <img className={classes.fflogo} src={cbalogo} />
             </div>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
