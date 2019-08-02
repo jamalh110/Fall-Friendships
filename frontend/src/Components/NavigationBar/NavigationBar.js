@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown"
+import { Button } from 'react-bootstrap';
 
 import { GoogleLogin } from "react-google-login";
 import classes from "./NavigationBar.module.css";
@@ -9,6 +10,7 @@ import App from "../../App.js";
 import browserHistory from "react-router";
 import gloginimage from "../../Assets/web/2x/btn_google_signin_light_normal_web@2x.png";
 import fflogo from "../../Assets/logo.png";
+import cbalogo from "../../Assets/cbalogo.png";
 
 class NavigationBar extends React.Component {
 
@@ -17,8 +19,6 @@ class NavigationBar extends React.Component {
   }
   render() {
     var decide = function () {
-      console.log("Pops:")
-      console.log(this.props)
       if (this.props.state.loggedIn != true) {
         return (
           <GoogleLogin
@@ -28,7 +28,7 @@ class NavigationBar extends React.Component {
             onFailure={this.responseGoogleSuccess}
             cookiePolicy={"single_host_origin"}
             render={renderProps => (
-              <p className={classes.signIn} onClick={renderProps.onClick}>Sign In</p>
+              <Button className={classes.signInButton} variant="light" onClick={renderProps.onClick}> Sign In </Button>
             )}
           />
         )
@@ -45,15 +45,15 @@ class NavigationBar extends React.Component {
           </Nav.Link>
         )
       }
-    }
-
+    }.bind(this)
 
     return (
       <Navbar sticky="top" className={classes.MainNavbar} expand="md">
         <Navbar.Brand href="">
           <div className={classes.brandBox}>
             <img className={classes.fflogo} src={fflogo} />
-            <p>thc x cba</p>
+            <p>THC x CBA</p>
+            <img className={classes.fflogo} src={cbalogo} />
           </div>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -84,17 +84,14 @@ class NavigationBar extends React.Component {
               >
                 <p>Contact</p>
               </Nav.Link>
-
-              {decide.bind(this)()}
-
+              {decide()}
             </Nav>
           </div>
         </Navbar.Collapse>
       </Navbar>
     );
-
   }
 }
 
 
-export default NavigationBar;
+export default NavigationBar; 

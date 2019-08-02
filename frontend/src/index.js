@@ -73,11 +73,11 @@ class Wrapper extends React.Component {
   render() {
     console.log("renduy")
     return (
-      <div class={classes.fallingLeaves} id="leafdiv">
+      <div className={classes.fallingLeaves} id="leafdiv">
 
-        <Route exact path="/" render={(props) => (<div class={classes.enclosedDiv} ><HomePage {...props} state={this.state} setState={this.setStatePass.bind(this)} /> </div>)} />
-        <Route path="/about" render={(props) => (<div class={classes.enclosedDiv} ><About {...props} state={this.state} setState={this.setStatePass.bind(this)} /> </div>)} />
-        <Route path="/contact" render={(props) => (<div class={classes.enclosedDiv} ><Contact {...props} state={this.state} setState={this.setStatePass.bind(this)} /></div>)} />
+        <Route exact path="/" render={(props) => (<div className={classes.enclosedDiv} ><HomePage {...props} state={this.state} setState={this.setStatePass.bind(this)} /> </div>)} />
+        <Route path="/about" render={(props) => (<div className={classes.enclosedDiv} ><About {...props} state={this.state} setState={this.setStatePass.bind(this)} /> </div>)} />
+        <Route path="/contact" render={(props) => (<div className={classes.enclosedDiv} ><Contact {...props} state={this.state} setState={this.setStatePass.bind(this)} /></div>)} />
         <Route path="/survey" render={(props) => <Survey {...props} state={this.state} setState={this.setStatePass.bind(this)} />} />
 
       </div>
@@ -273,4 +273,3 @@ function start(scene) {
   leaves.init();
   leaves.render();
 }
-
