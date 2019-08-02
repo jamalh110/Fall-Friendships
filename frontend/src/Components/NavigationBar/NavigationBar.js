@@ -10,6 +10,7 @@ import App from "../../App.js";
 import browserHistory from "react-router";
 import gloginimage from "../../Assets/web/2x/btn_google_signin_light_normal_web@2x.png";
 import fflogo from "../../Assets/logo.png";
+import thclogo from "../../Assets/THClogo.png"
 import cbalogo from "../../Assets/cbalogo.png";
 
 class NavigationBar extends React.Component {
@@ -51,7 +52,7 @@ class NavigationBar extends React.Component {
       <Navbar sticky="top" className={classes.MainNavbar} expand="md">
         <Navbar.Brand href="">
           <div className={classes.brandBox}>
-            <img className={classes.fflogo} src={fflogo} />
+            <img className={classes.fflogo} src={thclogo} />
             <p>THC x CBA</p>
             <img className={classes.fflogo} src={cbalogo} />
           </div>
