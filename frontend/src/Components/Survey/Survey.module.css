@@ -15,7 +15,7 @@
     background-color: #f8f0d3;
     height: 100%;
     width: 100%;
-    overflow-y: scroll;
+    /*overflow-y: scroll;*/
     -webkit-overflow-scrolling: touch;
 }
 
