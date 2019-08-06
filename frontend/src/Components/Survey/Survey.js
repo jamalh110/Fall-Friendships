@@ -105,7 +105,7 @@ class SurveyClass extends React.Component {
           state={this.props.state.state}
           googleCallBack={App.googleResponseSuccess.bind(this)}
         />
-        <div style={{ overflow: "scroll", height: "auto", marginLeft: "15px", marginRight: "15px", marginBottom: "200px", backgroundColor: "rgba(255, 255, 255, 0.85)" }}>
+        <div style={{ height: "auto", marginLeft: "15px", marginRight: "15px", marginBottom: "200px", backgroundColor: "rgba(255, 255, 255, 0.85)" }}>
           <p style={{ position: "absolute", zIndex: "-1", fontSize: "40px", opacity: "0" }}>If the survey hasn't loaded, simply reload the page</p>
           <Survey.Survey
             model={survey}
