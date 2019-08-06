@@ -1,5 +1,5 @@
 module.exports = {
-    json = {
+    json: {
         title: "Friendship Survey",
         completedHtml: "<div style = \"text-align:center\">Submitting...<br>Do not leave this page<br><br><div>",
         pages: [
