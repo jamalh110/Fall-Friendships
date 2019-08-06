@@ -12,11 +12,11 @@ import fflogo from "../../Assets/yeet.png";
 class HomePage extends React.Component {
 
   componentWillMount() {
-
+    //sets counter to loading 
     this.setState({
       count: "loading"
     });
-
+    //fetches count and updates page in callback 
     fetch(App.backendURL + "get_count", {
       method: "get"
     })
@@ -36,10 +36,9 @@ class HomePage extends React.Component {
       );
   }
 
-  responseGoogleSuccess(response) {
-    //var result = App.googleResponseSuccess(response)
-  }
+  
   render() {
+    //if not logged in, show google sign in. if so, show take survey button
     var decision = (
       <GoogleLogin
         clientId="29949178420-0opvqqshb6ltbdmhceqgcout83b7s5i2.apps.googleusercontent.com"

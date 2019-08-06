@@ -5,10 +5,8 @@ import HomePage from "./Components/Home/HomePage";
 class App {}
 App.backendURL = "/api/";
 
-//ONLY GETS CALLED WHEN IT IS BOUND TO A COMPONENT'S THIS
+//ONLY CALL THIS WHEN IT IS BOUND TO A COMPONENT'S THIS
 App.googleResponseSuccess = function(response) {
-  //console.log(response);
-  //console.log("hi2")
   fetch(App.backendURL + "authenticate_login_token", {
     method: "post",
     headers: { "Content-Type": "application/json" },
@@ -25,8 +23,8 @@ App.googleResponseSuccess = function(response) {
       }
     })
     .then(
+      //if successful, set state
       function(resp) {
-        //console.log(response)
         this.props.setState({
           state: Object.assign(this.props.state.state, {
             loggedIn: true,

@@ -18,38 +18,26 @@ import * as serviceWorker from "./serviceWorker";
 const proxy = require("http-proxy-middleware");
 
 class Wrapper extends React.Component {
+  //start the leaf scene falling leaves animation 
   componentDidMount() {
-    /*
-    const s = document.createElement("script");
-
-    s.type = 'text/javascript';
-    s.async = true;
-    //s.innerHTML = "console.log(\"hi\")";
-    s.src = leafjs
-    document.body.appendChild(s);
-    /*script.src = "./leaves/leaves.js";
-    script.async = true;
-
-    document.body.appendChild(script);*/
-    start2()
-
+    startUp()
   }
   componentWillMount() {
-
+    //if there is already a state in the location (e.g. after a reload), use it. or else make a new one 
     if (this.props.location.state == null) {
       this.setState({
         state: new State()
       });
     } else {
       this.setState({
-
         state: this.props.location.state.state
-
       });
     }
+
+    //if on iphone or ipad, beforeunload does not work, so use pagehide
     var isOnIOS = navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPhone/i);
     var eventName = isOnIOS ? "pagehide" : "beforeunload";
-
+    //save the state in the location history on a reload 
     window.addEventListener(eventName, function (event) {
       this.props.history.replace(window.location.pathname, { state: this.state.state });
     }.bind(this));
@@ -63,32 +51,34 @@ class Wrapper extends React.Component {
       document.getElementsByTagName("html")[0].style.width="100%"
     }
   }
-  componentWillUnmount() {
 
-  }
-
+  //function to pass as setState to child components to set the global state
   setStatePass(object) {
     this.setState(object)
   }
+
   render() {
-    console.log("renduy")
+    //outer div is leaves
+    //inside the routes, enclose divs to make it work well with leaves. custom one alreadu in survey prop
+    //inside routes, pass state and setstate bound to this into props of component
     return (
       <div className={classes.fallingLeaves} id="leafdiv">
-
         <Route exact path="/" render={(props) => (<div className={classes.enclosedDiv} ><HomePage {...props} state={this.state} setState={this.setStatePass.bind(this)} /> </div>)} />
         <Route path="/about" render={(props) => (<div className={classes.enclosedDiv} ><About {...props} state={this.state} setState={this.setStatePass.bind(this)} /> </div>)} />
         <Route path="/contact" render={(props) => (<div className={classes.enclosedDiv} ><Contact {...props} state={this.state} setState={this.setStatePass.bind(this)} /></div>)} />
         <Route path="/survey" render={(props) => <Survey {...props} state={this.state} setState={this.setStatePass.bind(this)} />} />
-
       </div>
     )
   }
 }
+
+//weird javascript class stuff to make this work 
 var vars = new defineVars()
-function start2() {
+function startUp() {
   start(vars.LeafScene)
 }
 
+//this werid route inception is just so we have access to the props.location used above in the reload code that react router so nicely provides to us 
 const root = (<Router><Route path="/" component={Wrapper} /></Router>)
 ReactDOM.render(root, document.getElementById("root"));
 
@@ -97,7 +87,7 @@ ReactDOM.render(root, document.getElementById("root"));
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
 
-//DO NOT WORRY ABOUT THE BELOW
+//DO NOT WORRY ABOUT THE BELOW. IT IS WACK
 
 function defineVars() {
   this.LeafScene = function (el) {
