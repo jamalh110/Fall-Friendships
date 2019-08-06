@@ -99,7 +99,7 @@ class SurveyClass extends React.Component {
     }
     //return survey
     return (
-      <div className={classes.surveyPage}>
+      <div >
         <Navbar
           history={this.props.history}
           state={this.props.state.state}
