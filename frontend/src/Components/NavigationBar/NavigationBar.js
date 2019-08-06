@@ -18,6 +18,7 @@ class NavigationBar extends React.Component {
   responseGoogleSuccess(response) {
     App.googleResponseSuccess(response);
   }
+  
   render() {
     var decide = function () {
       if (this.props.state.loggedIn != true) {
