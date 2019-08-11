@@ -10,11 +10,12 @@ import classes from "./Survey.module.css";
 import Surveyjson from "./Surveyjson.js"
 
 class SurveyClass extends React.Component {
-  //save their responses if they navigate to any other page
+  //save their responses and page number if they navigate to any other page
   componentWillUnmount() {
     this.props.setState({
       state: Object.assign(this.props.state.state, {
-        response: this.survey.data
+        response: this.survey.data,
+        currentPage: this.survey.currentPageNo
       })
     })
   }
@@ -60,7 +61,8 @@ class SurveyClass extends React.Component {
     if (this.dontReload != true) {
       this.survey = new Survey.Model(json);
       var survey = this.survey
-      
+      //set tonthe current page number 
+      survey.currentPageNo = this.props.state.state.currentPage
       //autofill in name if first time taking
       if (this.props.state.state.hasTaken != true) {
         survey.data = {

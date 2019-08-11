@@ -5,6 +5,7 @@ class State{
     firstName= null
     lastName= null
     hasTaken = false
+    currentPage = 0
     response = {}
 }
 export default State
