@@ -4,7 +4,7 @@ import HomePage from "./Components/Home/HomePage";
 
 class App {}
 App.backendURL = "/api/";
-App.noServer = true;
+App.noServer = false;
 //ONLY CALL THIS WHEN IT IS BOUND TO A COMPONENT'S THIS
 App.googleResponseSuccess = function(response) {
   fetch(App.backendURL + "authenticate_login_token", {

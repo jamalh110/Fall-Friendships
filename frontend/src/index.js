@@ -251,12 +251,10 @@ function defineVars() {
     this.timer++;
 
     requestAnimationFrame(this.render.bind(this));
-    console.log("dund")
   }
 }
 // start up leaf scene
 function start(scene) {
-  console.log("start")
   var leafContainer = document.getElementById("leafdiv")
   var leaves = new scene(leafContainer);
 
