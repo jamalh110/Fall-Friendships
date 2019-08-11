@@ -63,8 +63,8 @@ class SurveyClass extends React.Component {
       //auto fill in name if first time taking
       if (this.props.state.state.hasTaken != true) {
         survey.data = {
-          question2: this.props.state.state.firstName,
-          question3: this.props.state.state.lastName
+          first_name: this.props.state.state.firstName,
+          last_name: this.props.state.state.lastName
         };
       }
       //auto fill previous submission if have taken before
@@ -79,13 +79,15 @@ class SurveyClass extends React.Component {
     var myCss = {
       footer: classes.footer,
       navigation: {
-        complete: "btn btn-success " + classes.padding
+        complete: "btn btn-success " + classes.padding,
+        next: "btn " + classes.padding
       },
-      radiogroup: "button btn-lg "
+      radiogroup: "button btn-lg ",
+      pageTitle: classes.pageTitle
     };
 
     //if they are accessing without logging in
-    if (this.props.state.state.loggedIn != true) {
+    if (this.props.state.state.loggedIn != true && !App.noServer) {
       return (
         <div>
           <Navbar
