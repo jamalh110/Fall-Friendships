@@ -18,9 +18,7 @@ class SurveyClass extends React.Component {
       })
     })
   }
- componentWillMount(){
-   console.log(this.props.state.state)
- }
+ 
   //code to be run when survey is submitted 
   onCompleteFollowup = function (result) {
     fetch(App.backendURL + "submit_survey", {
