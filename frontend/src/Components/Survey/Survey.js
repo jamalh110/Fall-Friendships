@@ -62,17 +62,19 @@ class SurveyClass extends React.Component {
     if (this.dontReload != true) {
       this.survey = new Survey.Model(json);
       var survey = this.survey
-      //auto fill in name if first time taking
+      
+      //autofill in name if first time taking
       if (this.props.state.state.hasTaken != true) {
         survey.data = {
           first_name: this.props.state.state.firstName,
           last_name: this.props.state.state.lastName
         };
       }
-      //auto fill previous submission if have taken before
-      else {
-        survey.data = this.props.state.state.response
-      }
+     //auto fill previous submission if have taken before
+     if(this.props.state.state.response){
+      survey.data = this.props.state.state.response
+     }
+      
     }
 
     var survey = this.survey
