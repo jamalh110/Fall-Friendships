@@ -35,7 +35,9 @@ class HomePage extends React.Component {
         }.bind(this)
       );
   }
-
+googleFail(resp){
+  console.log(resp)
+}
   
   render() {
     //if not logged in, show google sign in. if so, show take survey button
@@ -44,7 +46,7 @@ class HomePage extends React.Component {
         clientId="29949178420-0opvqqshb6ltbdmhceqgcout83b7s5i2.apps.googleusercontent.com"
         buttonText="Login"
         onSuccess={App.googleResponseSuccess.bind(this)}
-        onFailure={this.responseGoogleSuccess}
+        onFailure={this.googleFail}
         cookiePolicy={"single_host_origin"}
         render={renderProps => (
           <div>
