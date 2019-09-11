@@ -62,11 +62,13 @@ class Wrapper extends React.Component {
     //inside the routes, enclose divs to make it work well with leaves. custom one alreadu in survey prop
     //inside routes, pass state and setstate bound to this into props of component
     return (
+      <div className = {classes.outerDiv}>
       <div className={classes.fallingLeaves} id="leafdiv">
         <Route exact path="/" render={(props) => (<div className={classes.enclosedDiv} ><HomePage {...props} state={this.state} setState={this.setStatePass.bind(this)} /> </div>)} />
         <Route path="/about" render={(props) => (<div className={classes.enclosedDiv} ><About {...props} state={this.state} setState={this.setStatePass.bind(this)} /> </div>)} />
         <Route path="/contact" render={(props) => (<div className={classes.enclosedDiv} ><Contact {...props} state={this.state} setState={this.setStatePass.bind(this)} /></div>)} />
         <Route path="/survey" render={(props) => <Survey {...props} state={this.state} setState={this.setStatePass.bind(this)} />} />
+    </div>
       </div>
     )
   }
