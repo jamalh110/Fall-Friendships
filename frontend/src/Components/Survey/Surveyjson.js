@@ -19,6 +19,18 @@ module.exports = {
         "isRequired": true
        },
        {
+        "type": "text",
+        "name": "phone_number",
+        "title": "Phone Number (optional)",
+        "isRequired": false
+       },
+       {
+        "type": "text",
+        "name": "major",
+        "title": "Major",
+        "isRequired": true
+       },
+       {
         "type": "radiogroup",
         "name": "year",
         "title": "Year",
@@ -68,15 +80,15 @@ module.exports = {
         "choices": [
          {
           "value": "male",
-          "text": "Male"
+          "text": "Strictly Male"
          },
          {
           "value": "female",
-          "text": "Female"
+          "text": "Strictly Female"
          },
          {
           "value": "mix",
-          "text": "A Mix"
+          "text": "Any"
          }
         ],
         "otherText": "Other (describe)"
@@ -161,7 +173,7 @@ module.exports = {
          },
          {
           "value": "thriller",
-          "text": "Thriller"
+          "text": "Action/Thriller"
          },
          {
           "value": "horror",
@@ -173,7 +185,7 @@ module.exports = {
          },
          {
           "value": "dont_watch",
-          "text": "I don't watch movies"
+          "text": "I don't watch too many movies"
          }
         ]
        },
@@ -205,11 +217,11 @@ module.exports = {
          },
          {
           "value": "nonfiction",
-          "text": "Nonfiction"
+          "text": "Non-fiction"
          },
          {
           "value": "dont_read",
-          "text": "I don't read books"
+          "text": "I don't read too many books"
          }
         ]
        },
@@ -262,6 +274,10 @@ module.exports = {
          {
           "value": "few_hours",
           "text": "In a few hours"
+         },
+         {
+          "value": "within_day",
+          "text": "Within a day"
          },
          {
           "value": "days",
@@ -327,11 +343,21 @@ module.exports = {
           "text": "Social activism organisations"
          },
          {
-          "value": "more",
-          "text": "(need more of these)"
-         }
+          "value": "professional_orgs",
+          "text": "Professional Organizations"
+         },
+         {
+          "value": "project_teams",
+          "text": "Project Teams"
+         },
         ]
-       }
+       },
+       {
+        "type": "text",
+        "name": "hobbies",
+        "title": "Please list your hobbies, comma separated. e.g. tennis, call of duty, swimming, travelling, ...",
+        "isRequired": false
+       },
       ],
       "title": "Basic Preferences:"
      },
@@ -345,24 +371,40 @@ module.exports = {
         "isRequired": true,
         "choices": [
          {
-          "value": "swiss_alps",
-          "text": "Spending the day exploring the Swiss alps"
+          "value": "outdoor_adventure",
+          "text": "Going on an outdoor adventure"
          },
          {
-          "value": "ziplining",
-          "text": "Ziplining through the Amazon"
+          "value": "netflix",
+          "text": "Watching Netflix"
          },
          {
-          "value": "book",
-          "text": "Spending the day with a good book and hot chocolate"
+          "value": "meet_people",
+          "text": "Meeting new people"
          },
          {
-          "value": "pool",
-          "text": "Sitting by the pool"
+          "value": "food",
+          "text": "Trying new cuisines"
+         },
+         {
+          "value": "museums",
+          "text": "Explore museums"
          },
          {
           "value": "games",
-          "text": "Video games"
+          "text": "Playing video games"
+         },
+         {
+          "value": "sleep",
+          "text": "Sleeping"
+         },
+         {
+          "value": "hang",
+          "text": "Hanging out with close friends"
+         },
+         {
+          "value": "explore",
+          "text": "Exploring a city"
          },
          {
           "value": "study",
@@ -396,21 +438,33 @@ module.exports = {
        },
        {
         "type": "radiogroup",
-        "name": "historic_event",
-        "title": "Which historic event would you most want to be a part of?",
+        "name": "meal",
+        "title": "Who would you want to have a meal with?",
         "isRequired": true,
         "choices": [
          {
-          "value": "woodstock",
-          "text": "Woodstock"
+          "value": "politics",
+          "text": "Your favorite political leader"
          },
          {
-          "value": "delaware",
-          "text": "Crossing the Delaware with GW"
+          "value": "artist",
+          "text": "Your favorite artist/musician"
          },
          {
-          "value": "moon",
-          "text": "The Moon Landing"
+          "value": "athlete",
+          "text": "Your favorite athlete"
+         },
+         {
+          "value": "scientist",
+          "text": "Your favorite scientist"
+         },
+         {
+          "value": "entreprenuer",
+          "text": "Your favorite entrepreneur"
+         },
+         {
+          "value": "actor",
+          "text": "Your favorite actor/actress"
          }
         ]
        },
@@ -431,30 +485,6 @@ module.exports = {
          {
           "value": "research",
           "text": "Gather more information online"
-         }
-        ]
-       },
-       {
-        "type": "radiogroup",
-        "name": "vacation",
-        "title": "How do you like to spend your vacations?",
-        "isRequired": true,
-        "choices": [
-         {
-          "value": "netflix",
-          "text": "Vegging out and watching Netflix"
-         },
-         {
-          "value": "beach",
-          "text": "Relaxing on the beach"
-         },
-         {
-          "value": "travel",
-          "text": "Traveling to see ancient ruins or new cities"
-         },
-         {
-          "value": "sports",
-          "text": "Doing water/winter sports"
          }
         ]
        },
@@ -483,6 +513,10 @@ module.exports = {
          {
           "value": "games",
           "text": "Video games"
+         },
+         {
+          "value": "party",
+          "text": "Go partying"
          },
          {
           "value": "study",
