@@ -59,8 +59,7 @@ function authenticateGoogleToken(token, email, success, failure) {
                 if (res.data.email == email && email.includes("@cornell.edu")) {
                     success()
                 } else {
-                    //failure()
-                    success()
+                    failure()
                 }
             }
         });
@@ -74,8 +73,8 @@ this.runApp = function (db) {
     //params are email, token
     //returns schema object. With have submitted, and if applicable, response
     app.post("/api/authenticate_login_token", function (req, postResponse) {
-        console.log("yeet")
-        console.log(req.body.token)
+        //console.log("yeet")
+        //console.log(req.body.token)
         authenticateGoogleToken(req.body.token, req.body.email, function () {
             //success callback
 

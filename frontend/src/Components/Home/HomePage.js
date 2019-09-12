@@ -5,6 +5,7 @@ import { GoogleLogin } from "react-google-login";
 import Fade from 'react-reveal/Fade';
 import App from "../../App.js";
 import State from "../../State.js";
+import Button from "react-bootstrap/Button"
 import gloginimage from "../../Assets/web/2x/btn_google_signin_light_normal_web@2x.png";
 //import fflogo from "../../Assets/yeet.png";
 import fflogo from "../../Assets/yeet.png";
@@ -84,6 +85,14 @@ googleFail(resp){
           <br></br>
           <Fade delay={500}>
             <h3>Start the year off right. Meet someone new.</h3>
+            <Button
+          onClick={function() {
+            this.props.history.push("/about");
+          }.bind(this) } variant = "light"
+        >
+          See how it works
+        </Button>
+        <br></br>
             <h4>Sign Up Below.</h4>
             <div className={classes.homeDecBtn}> {decision}</div>
           </Fade>
