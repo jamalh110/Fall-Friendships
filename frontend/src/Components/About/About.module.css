@@ -1,3 +1,15 @@
-.mainAbout {
-  
+.mainAbout {}
+
+.aboutHeader {
+    text-align: center;
+}
+
+.aboutText {
+    margin-left: 10%;
+    margin-right: 10%
+}
+
+.aboutText p {
+    font-weight: 600;
+    font-size: 22px
 }

@@ -3,6 +3,8 @@ import Navbar from "../NavigationBar/NavigationBar";
 import { GoogleLogin } from 'react-google-login';
 import App from "../../App.js"
 import State from "../../State.js"
+import classes from "./Contact.module.css";
+
 
 class Contact extends React.Component {
 
@@ -10,7 +12,16 @@ class Contact extends React.Component {
     return (
       <div>
         <Navbar history={this.props.history} state={this.props.state.state} googleCallBack={App.googleResponseSuccess.bind(this)} />
-        <h1>contact</h1>
+        <h1 className = {classes.aboutHeader}>Contact</h1>
+        <br></br>
+        <br></br>
+        <div className = {classes.aboutText}>
+        <p>
+        Want to share your thoughts, ask a question, or just say hi? We’d love to hear from you!
+</p>
+<p>cornellbusinessanalytics@gmail.com</p>
+</div>
+
       </div>
     );
   }

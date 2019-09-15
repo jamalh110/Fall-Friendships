@@ -86,6 +86,7 @@ this.runApp = function (db) {
                 //if yes, create record for email and insert token 
                 if (result == null) {
                     console.log("User " + req.body.email + " does not already exist. creating record")
+                    
                     var record = createNewUser(req.body)
 
 

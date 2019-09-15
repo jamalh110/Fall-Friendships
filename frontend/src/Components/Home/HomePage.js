@@ -98,6 +98,7 @@ googleFail(resp){
           </Fade>
           <Fade delay={1000}>
             <h4 className={classes.pplCount}>{this.state.count} participants and counting</h4>
+            <h4 className={classes.pplCount}>Survey closes Sept. 24</h4>
           </Fade>
         </div>
       </div>
