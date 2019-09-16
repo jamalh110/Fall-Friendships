@@ -55,7 +55,9 @@ class NavigationBar extends React.Component {
           <div className={classes.brandBox}>
             <img className={classes.fflogo} src={thclogo} />
             <p>THC x CBA</p>
-            <img className={classes.fflogo} src={cbalogo} />
+            <a href="http://www.cornellbusinessanalytics.com">
+              <img className={classes.fflogo} src={cbalogo} />
+            </a>
           </div>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
