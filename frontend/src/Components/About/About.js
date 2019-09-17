@@ -9,8 +9,8 @@ class About extends React.Component {
   
   render() {
     return (
-      <div>
-      <Navbar
+<div style = {{height:"100%"}}>     
+ <Navbar
           history={this.props.history}
           state={this.props.state.state}
           googleCallBack={App.googleResponseSuccess.bind(this)}

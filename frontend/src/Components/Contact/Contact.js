@@ -10,7 +10,7 @@ class Contact extends React.Component {
 
   render() {
     return (
-      <div>
+      <div style = {{height:"100%"}}>
         <Navbar 
             history={this.props.history} 
             state={this.props.state.state} 
