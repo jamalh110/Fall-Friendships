@@ -17,6 +17,11 @@ class Contact extends React.Component {
             googleCallBack={App.googleResponseSuccess.bind(this)} 
           />
         <div className={classes.mainContact}>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        
           <h1 className = {classes.aboutHeader}>Contact</h1>
           <br></br>
           <br></br>

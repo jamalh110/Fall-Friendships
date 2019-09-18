@@ -16,6 +16,10 @@ class About extends React.Component {
           googleCallBack={App.googleResponseSuccess.bind(this)}
         />
       <div className={classes.mainAbout}>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
         
         <h1 className = {classes.aboutHeader}>About</h1>
         <br></br>
